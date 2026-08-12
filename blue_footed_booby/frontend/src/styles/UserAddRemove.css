@@ -1,0 +1,162 @@
+body {
+  padding-bottom: 20px;
+}
+
+.AddContainer {
+  color: #333;
+  border: 2px solid darkolivegreen;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+.page-trigger {
+  display: flex;
+}
+
+.input-fields {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+}
+
+.input-fields > label {
+  text-align: center;
+}
+
+.User-Header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.return-click {
+  background: #dc2626;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  height: 80%;
+  margin-top: 35px;
+}
+
+.input-fields label input,
+.selectedClass select {
+  margin-left: 10px;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  vertical-align: top;
+}
+
+.user-add {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#submit-button {
+  width: 100%;
+  background-color: green;
+  margin-top: 30px;
+}
+
+#signup {
+  border-radius: 5px;
+}
+
+.userlist {
+  border: 1px solid black;
+  max-width: 30%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.userlist {
+  display: flex;
+  flex-direction: column;
+  align-items: space-evenly;
+  overflow-y: scroll;
+  max-height: 300px;
+  border-collapse: collapse;
+  background: #f9fafb;
+}
+
+.userlist td:nth-child(1) {
+  padding-left: 15px;
+}
+
+.userlist td:nth-child(2) {
+  text-align: center;
+}
+
+.userlist td:nth-child(3) {
+  text-align: center;
+}
+
+th,
+td {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  padding: 8px;
+}
+
+.table-title {
+  text-align: center;
+}
+
+#submit-button:disabled {
+  background-color: gray;
+}
+
+.input-pop {
+  display: flex;
+}
+
+.input-pop:nth-child(2) {
+  margin-top: 10px;
+}
+
+.popup {
+  color: red;
+  font-weight: 200;
+  background: #f9fafb;
+  margin-left: 15px;
+  padding: 0.5rem;
+  border: 2px solid red;
+  vertical-align: top;
+  margin-bottom: 10px;
+  height: 15px;
+}
+
+.Remove-Container {
+  color: #333;
+  border: 2px solid darkolivegreen;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  font-family: sans-serif;
+}
+
+.removeTable > * {
+  max-width: 1000px;
+}
+
+.selectedClass {
+  margin-top: 10px;
+}
+
+.selectedClass b {
+  margin: 0 auto;
+}
+
+.ButtonDiv {
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
