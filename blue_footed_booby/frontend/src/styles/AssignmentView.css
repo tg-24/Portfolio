@@ -1,0 +1,64 @@
+.student-assignment-container {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+}
+
+.student-assignment-header {
+    background-color: #cce5ff;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.return-button {
+    background-color: white;
+    color: #0056b3;
+    padding: 8px 12px;
+    border: 1px solid #0056b3;
+    border-radius: 6px;
+    cursor: pointer;
+    
+}
+
+.student-assignment-content {
+    padding: 24px;
+}
+
+.assignment-actions {
+    margin-bottom: 16px;
+}
+
+.view-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.due-date {
+    margin-left: 16px;
+    color: #333;
+}
+
+.group-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.group-table tr {
+    cursor: pointer;
+}
+
+.group-table th, .group-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.group-table th {
+    background-color: #f2f2f2;
+}

@@ -1,0 +1,38 @@
+.report-container{
+    display:flex;
+    justify-content: space-between;
+}
+
+
+.code-container{
+    width:80%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    flex: 1;
+    margin-right:10px;
+}
+
+.reportfile-header>div{
+    margin-bottom:10px;
+}
+
+.overall-container{
+    padding-bottom:100px;
+}
+
+.comment-links{
+    margin-left:20px;
+    display:flex;
+}
+
+.comment-links>*{
+    margin-right:10px;
+    font-size:20px;
+}
+
+.comments-title{
+    margin-left:20px;
+}
