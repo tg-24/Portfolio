@@ -1,3 +1,6 @@
+import hero from "../assets/hero.png";
+import "../styles/Home.css";
+
 export default function Home() {
   return (
     <div className="home-page">
@@ -6,10 +9,8 @@ export default function Home() {
       </div>
       <div className="content">
         <div className="bio">
-          <img className="community-img">
-            {/** Include a img of the community */}
-          </img>
-          <section>
+          <img className="community-img" src={hero} alt="Image not Found" />
+          <section style={{ color: "white" }}>
             The Eritrean Community based in Malden, MA is a place for Ertirean
             families to feel welcome and to stay connected. Here we host events
             like weekly basketball practices with kids and adults, and
