@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="home-page">
       <div className="title">
-        <h1>Eritrean Community Page</h1>
+        <h1>Home</h1>
       </div>
       <div className="content">
         <div className="bio">
