@@ -13,3 +13,22 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
+.tabs {
+  display: flex;
+}
+
+.tabs > * {
+  margin-right: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.register_button {
+  background-color: rgb(27, 130, 27);
+  border-radius: 5px;
+  border: 0;
+  padding: 15px;
+  color: white;
+  font-size: large;
+}
