@@ -9,14 +9,14 @@ export default function Layout() {
   return (
     <div className="container">
       <header className="header">
-        <div>
+        <div className="logo_name_container">
           <div className="logo">
             <Link to={homePath} className="homepath">
               <img className="logo_img" src={logo} alt="Image not Found" />
             </Link>
           </div>
-          <div>
-            <h3>Eritrean Community</h3>
+          <div className="community_title">
+            <h2>Eritrean Community</h2>
             <p>People &bull; Culture &bull; Heritage &bull; Unity </p>
           </div>
         </div>

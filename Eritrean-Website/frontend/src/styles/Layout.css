@@ -3,9 +3,26 @@
   height: 100%;
 }
 
+.logo {
+  margin-right: 40px;
+}
+
 .logo_img {
-  width: 2em;
-  height: 2em;
+  width: 3em;
+  height: 3em;
+}
+
+.logo_name_container {
+  display: flex;
+  align-items: center;
+}
+
+.community_title > h2 {
+  margin-bottom: 0;
+}
+
+.community_title > p {
+  margin-top: 5px;
 }
 
 .header {
@@ -19,9 +36,13 @@
 }
 
 .tabs > * {
-  margin-right: 20px;
+  margin-right: 40px;
   text-decoration: none;
   color: black;
+}
+
+.tabs > * > * {
+  font-size: x-large;
 }
 
 .register_button {
