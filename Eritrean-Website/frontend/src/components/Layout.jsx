@@ -1,10 +1,18 @@
 import { Outlet, Link } from "react-router";
+import { useState } from "react";
 import "../styles/Layout.css";
 import logo from "../assets/logo.png";
 
 export default function Layout() {
   const homePath = "home/";
   const tab_list = ["Home", "About", "Events", "Contact"];
+  const [currPage, setCurrPage] = useState(null);
+
+  function handleColor(e) {
+    if (currPage != null) {
+    }
+    setCurrPage(e.currentTarget);
+  }
 
   return (
     <div className="container">
@@ -22,7 +30,11 @@ export default function Layout() {
         </div>
         <div className="tabs">
           {tab_list.map((val, index) => (
-            <Link to={val.toLowerCase() + "/"} key={index}>
+            <Link
+              onClick={handleColor}
+              to={val.toLowerCase() + "/"}
+              key={index}
+            >
               <p>{val}</p>
             </Link>
           ))}

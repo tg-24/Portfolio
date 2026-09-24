@@ -42,14 +42,14 @@
 }
 
 .tabs > * > * {
-  font-size: x-large;
+  font-size: large;
 }
 
 .register_button {
   background-color: rgb(27, 130, 27);
   border-radius: 5px;
   border: 0;
-  padding: 15px;
+  padding: 12px;
   color: white;
-  font-size: large;
+  font-size: medium;
 }
