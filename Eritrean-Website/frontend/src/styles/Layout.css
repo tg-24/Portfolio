@@ -26,16 +26,19 @@
 }
 
 .header {
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background-color: rgb(253, 253, 214);
+  height: 20%;
+  font-size: 2rem;
+  width: 100%;
 }
 
 .tabs {
   display: flex;
-  height: 30px;
-  margin-bottom: 20px;
+  align-items: center;
 }
 
 .tabs > * {
@@ -45,7 +48,7 @@
 }
 
 .tabs > * > * {
-  font-size: large;
+  font-size: 2rem;
 }
 
 .register_button {
@@ -54,7 +57,12 @@
   border: 0;
   padding: 12px;
   color: white;
-  font-size: medium;
+  font-size: 2rem;
+}
+
+.register_button:hover {
+  background-color: yellow;
+  color: black;
 }
 
 .active > p {
@@ -70,5 +78,5 @@ main {
 
 footer {
   background-color: black;
-  height: 20%;
+  height: 10vw;
 }
