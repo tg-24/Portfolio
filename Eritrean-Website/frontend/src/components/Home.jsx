@@ -1,4 +1,3 @@
-import hero from "../assets/hero.png";
 import "../styles/Home.css";
 import asmara from "../assets/Asmara-Eritrea.jpg";
 export default function Home() {
@@ -10,7 +9,6 @@ export default function Home() {
       </header>
       <div className="content">
         <div className="bio">
-          <img className="community-img" src={hero} alt="Image not Found" />
           <section style={{ color: "white" }}>
             The Eritrean Community based in Malden, MA is a place for Ertirean
             families to feel welcome and to stay connected. Here we host events
