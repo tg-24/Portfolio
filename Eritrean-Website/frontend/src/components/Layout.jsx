@@ -4,7 +4,7 @@ import "../styles/Layout.css";
 import logo from "../assets/logo.png";
 
 export default function Layout() {
-  const homePath = "home/";
+  const homePath = "";
   const tab_list = ["Home", "About", "Events", "Community", "Contact"];
 
   return (
@@ -25,7 +25,7 @@ export default function Layout() {
           {tab_list.map((val, index) => (
             <NavLink
               className={({ isActive }) => (isActive ? "active" : "")}
-              to={val.toLowerCase() + "/"}
+              to={val == "Home" ? "" : val.toLowerCase() + "/"}
               key={index}
             >
               <p>{val}</p>

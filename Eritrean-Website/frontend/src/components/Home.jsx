@@ -1,12 +1,13 @@
 import hero from "../assets/hero.png";
 import "../styles/Home.css";
-
+import asmara from "../assets/Asmara-Eritrea.jpg";
 export default function Home() {
   return (
     <div className="home-page">
-      <div className="title">
-        <h1>Home</h1>
-      </div>
+      <header className="title">
+        <img src={asmara} />
+        <h2>Strength in Numbers</h2>
+      </header>
       <div className="content">
         <div className="bio">
           <img className="community-img" src={hero} alt="Image not Found" />
