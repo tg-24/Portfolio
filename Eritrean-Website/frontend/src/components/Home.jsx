@@ -1,20 +1,21 @@
 import "../styles/Home.css";
-import asmara from "../assets/Asmara-Eritrea.jpg";
 export default function Home() {
   return (
     <div className="home-page">
-      <header className="title">
-        <img src={asmara} />
-        <h1>Strength in Numbers</h1>
-        <p>
-          A community of Eritreans, connecting a culture of people working
-          towards building a brighter future together.
-        </p>
+      <div className="home-header">
+        <div className="title"></div>
+        <div className="description">
+          <h1>Strength in Numbers</h1>
+          <p>
+            A community of Eritreans, connecting a culture of people working
+            towards building a brighter future together.
+          </p>
+        </div>
         <div className="buttons">
           <button className="join">Join our Community</button>
           <button className="learn">Learn More</button>
         </div>
-      </header>
+      </div>
       <div className="content">
         <div className="bio">
           <section style={{ color: "white" }}>
@@ -29,15 +30,7 @@ export default function Home() {
             have food and drinks for us all to share.
           </section>
         </div>
-        <div className="important-figures">
-          {/* Use the unordered list below to insert pictures and text describing each important figure to the communities' head. */}
-          {/* <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul> */}
-        </div>
+        <div className="important-figures"></div>
       </div>
     </div>
   );

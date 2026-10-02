@@ -3,56 +3,69 @@
   height: 100%;
 }
 
-.title {
-  width: 100%;
-}
-
-.title > h1 {
-  margin: 0;
-}
-
-.title img {
-  width: 100%;
-  height: 70vh;
-  margin: 0 auto;
-}
-
-.title > h1,
-.title > p {
-  color: rgb(67, 67, 67);
+.description > h1,
+.description > p {
+  color: white;
   position: relative;
-  bottom: 30rem;
+  bottom: 35rem;
   left: 2rem;
   font-size: 5rem;
   z-index: 0;
 }
 
-.title p {
+.description p {
   font-size: 2rem;
   width: 40%;
   font-weight: 400;
 }
 
 .buttons {
+  position: relative;
+  bottom: 33rem;
+  left: 4rem;
 }
 
 .join {
   background-color: rgb(27, 130, 27);
   border-radius: 5px;
   border: 2px solid black;
-  padding: 12px;
+  padding: 1rem;
   color: white;
   font-size: 2rem;
 }
 
 .join:hover {
-  background-color: yellow;
+  background-color: darkgreen;
   color: black;
 }
 
 .learn {
   background: transparent;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 5px;
   font-size: 2rem;
+  padding: 1rem;
+  margin-left: 2rem;
+  box-shadow: 0 0 7px 5px rgb(28, 28, 28);
+  font-weight: bold;
+}
+
+.learn:hover {
+  background-color: darkslategray;
+  color: white;
+  box-shadow: none;
+}
+
+.title {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.65) 0%,
+      rgba(0, 0, 0, 0.3) 45%,
+      rgba(0, 0, 0, 0) 70%
+    ),
+    url("../assets/Asmara-Eritrea.jpg");
+
+  background-size: cover;
+  min-height: 65vh;
 }

@@ -8,8 +8,8 @@
 }
 
 .logo_img {
-  width: 3rem;
-  height: 3rem;
+  width: 4vw;
+  height: 8vh;
 }
 
 .logo_name_container {
@@ -60,7 +60,7 @@
 }
 
 .register_button:hover {
-  background-color: yellow;
+  background-color: drakgreen;
   color: black;
 }
 
