@@ -36,6 +36,7 @@
   width: 100%;
   top: 0;
   font-size: 2rem;
+  z-index: 1000;
 }
 
 .tabs {

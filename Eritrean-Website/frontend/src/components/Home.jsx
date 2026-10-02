@@ -5,7 +5,15 @@ export default function Home() {
     <div className="home-page">
       <header className="title">
         <img src={asmara} />
-        <h2>Strength in Numbers</h2>
+        <h1>Strength in Numbers</h1>
+        <p>
+          A community of Eritreans, connecting a culture of people working
+          towards building a brighter future together.
+        </p>
+        <div className="buttons">
+          <button className="join">Join our Community</button>
+          <button className="learn">Learn More</button>
+        </div>
       </header>
       <div className="content">
         <div className="bio">

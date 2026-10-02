@@ -17,7 +17,42 @@
   margin: 0 auto;
 }
 
-.title > h2 {
-  color: white;
+.title > h1,
+.title > p {
+  color: rgb(67, 67, 67);
   position: relative;
+  bottom: 30rem;
+  left: 2rem;
+  font-size: 5rem;
+  z-index: 0;
+}
+
+.title p {
+  font-size: 2rem;
+  width: 40%;
+  font-weight: 400;
+}
+
+.buttons {
+}
+
+.join {
+  background-color: rgb(27, 130, 27);
+  border-radius: 5px;
+  border: 2px solid black;
+  padding: 12px;
+  color: white;
+  font-size: 2rem;
+}
+
+.join:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.learn {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 2rem;
 }
