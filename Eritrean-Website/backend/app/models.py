@@ -8,3 +8,13 @@ class WebUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
+
+class Events(models.Model):
+    title = models.CharField()
+    location = models.CharField()
+    date = models.DateField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    address = models.CharField()
+    description = models.TextField()

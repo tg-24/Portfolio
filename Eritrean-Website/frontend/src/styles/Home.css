@@ -3,32 +3,34 @@
   height: 100%;
 }
 
-.description > h1,
-.description > p {
+.home-header {
+  height: 65vh;
+}
+
+.description {
   color: white;
   position: relative;
-  bottom: 35rem;
+  bottom: 31rem;
   left: 2rem;
-  font-size: 5rem;
   z-index: 0;
+  font-size: 2rem;
 }
 
 .description p {
-  font-size: 2rem;
   width: 40%;
   font-weight: 400;
 }
 
 .buttons {
   position: relative;
-  bottom: 33rem;
+  bottom: 31rem;
   left: 4rem;
 }
 
 .join {
   background-color: rgb(27, 130, 27);
   border-radius: 5px;
-  border: 2px solid black;
+  border: 4px solid black;
   padding: 1rem;
   color: white;
   font-size: 2rem;
@@ -68,4 +70,106 @@
 
   background-size: cover;
   min-height: 65vh;
+}
+
+.location {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 27rem;
+  color: white;
+  margin-right: 4rem;
+  font-size: 1.5rem;
+}
+
+.purpose {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(234, 221, 199);
+}
+
+.purpose section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.purpose section p {
+  margin: 0;
+}
+
+.purpose section b {
+  margin-bottom: 0.5rem;
+}
+.purpose img {
+  height: 20vh;
+}
+
+.event,
+.support {
+  margin-top: 1.8rem;
+}
+
+.culture {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hand-heart {
+  font-size: 6rem;
+  color: goldenrod;
+  margin-bottom: 2.2rem;
+}
+
+.calendar {
+  font-size: 6rem;
+  color: rgb(56, 56, 237);
+  margin-bottom: 2.2rem;
+}
+
+.purpose section:not(:last-child)::after {
+  content: "";
+  position: absolute;
+
+  right: 0;
+  left: 20rem;
+
+  width: 2px;
+  height: 20vh;
+  background-color: rgb(193, 186, 176);
+}
+
+.purpose section:nth-child(3)::after {
+  bottom: 3.8rem;
+}
+
+.events_link {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  font-size: larger;
+}
+
+.event-arrow {
+  margin-left: 10px;
+}
+
+.upcoming-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upcoming-events {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 1rem;
 }

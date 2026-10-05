@@ -31,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: rgb(253, 253, 214);
+  background-color: rgb(247, 233, 210);
   height: 15vh;
   width: 100%;
   top: 0;
@@ -53,14 +53,14 @@
 .register_button {
   background-color: rgb(27, 130, 27);
   border-radius: 5px;
-  border: 2px solid black;
+  border: 3px solid black;
   padding: 12px;
   color: white;
   font-size: 2rem;
 }
 
 .register_button:hover {
-  background-color: drakgreen;
+  background-color: darkgreen;
   color: black;
 }
 
