@@ -61,7 +61,6 @@ class LoginView(APIView):
         user = authenticate(
             username=request.data["username"], password=request.data["password"]
         )
-        print(user)
         if user is not None:
             token, _ = Token.objects.get_or_create(user=user)
             return Response({"token": token.key})
@@ -140,6 +139,27 @@ class Eventist(APIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
     authentication_classes = [TokenAuthentication]
 
+    @extend_schema(
+        summary="Create an event",
+        description="Input detais required for each events (i.e. title, description, data) to create one",
+        request=OpenApiRequest(
+            EventListSerializer,
+            examples=[
+                OpenApiExample(
+                    name="example",
+                    value={
+                        "title": "Graduation Party",
+                        "date": "12/06/2005",
+                        "location": "Malden, MA",
+                        "start_time": "12/06/2005 12:00PM",
+                        "end_time": "12/06/2005 2:00PM",
+                        "address": "120 Main St",
+                        "description": "Celebration of high school graduates.",
+                    },
+                ),
+            ],
+        ),
+    )
     def post(self, request):
         serializer = EventListSerializer(data=request.data)
         if serializer.is_valid():
@@ -154,3 +174,8 @@ class Eventist(APIView):
             serializer.save()
             return Response({"message": serializer.data})
         return Response({"error": serializer.errors})
+
+    def get(self, request):
+        qs = Event.objects.all()
+        serializer = EventListSerializer(qs, many=True)
+        return Response({"events": serializer.data})
