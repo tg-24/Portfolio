@@ -22,3 +22,9 @@ class UserUpdateSerializer(serializers.ModelSerializer):
 
 class PasswordUpdateSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
+
+
+class EventListSerializer(serializers.Serializer):
+    class Meta:
+        model = Event
+        fields = "__all__"

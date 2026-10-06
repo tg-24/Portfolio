@@ -10,7 +10,7 @@ class WebUser(AbstractUser):
         return self.username
 
 
-class Events(models.Model):
+class Event(models.Model):
     title = models.CharField()
     location = models.CharField()
     date = models.DateField()

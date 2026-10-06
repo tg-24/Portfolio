@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import authenticate, TokenAuthentication
 from django.db import models
@@ -133,4 +133,24 @@ class UpdatePasswordView(APIView):
             request.user.set_password(serializer.validated_data["password"])
             request.user.save()
             return Response({"message": "Successfully updated"})
+        return Response({"error": serializer.errors})
+
+
+class Eventist(APIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
+    authentication_classes = [TokenAuthentication]
+
+    def post(self, request):
+        serializer = EventListSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": serializer.data})
+        return Response({"error": serializer.errors})
+
+    def patch(self, request, id):
+        event = Event.objects.get(id=id)
+        serializer = EventListSerializer(event, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": serializer.data})
         return Response({"error": serializer.errors})
