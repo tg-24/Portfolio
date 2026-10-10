@@ -32,5 +32,7 @@ urlpatterns = [
     path("api/login/", LoginView.as_view(), name="login"),
     path("api/logout/", LogoutView.as_view(), name="logout"),
     path("api/update/info/", UpdateInfoView.as_view(), name="info"),
-    path("api/update/password/", UpdatePasswordView.as_view(), name="password"),
+    path("api/event/", EventView.as_view(), name="event"),
+    path("api/event_change/<int:id>/", EventUpdateView.as_view(), name="event_change"),
+    path("api/roster/<int:id>/", RosterUpdateView.as_view(), name="roster"),
 ]

@@ -18,3 +18,6 @@ class Event(models.Model):
     end_time = models.DateTimeField()
     address = models.CharField()
     description = models.TextField()
+    roster = models.ManyToManyField(
+        WebUser, related_name="registered_users", blank=True
+    )

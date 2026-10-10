@@ -1,12 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
+from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authtoken.models import Token
 from rest_framework.authentication import authenticate, TokenAuthentication
 from django.db import models
-from drf_spectacular.utils import extend_schema, OpenApiRequest, OpenApiExample
+from drf_spectacular.utils import (
+    extend_schema,
+    OpenApiRequest,
+    OpenApiResponse,
+    OpenApiExample,
+)
 from .models import *
 from .serializers import *
 
@@ -135,15 +141,15 @@ class UpdatePasswordView(APIView):
         return Response({"error": serializer.errors})
 
 
-class Eventist(APIView):
-    permission_classes = [IsAuthenticated, IsAdminUser]
+class EventView(APIView):
+    permission_classes = [IsAdminUser]
     authentication_classes = [TokenAuthentication]
 
     @extend_schema(
         summary="Create an event",
         description="Input detais required for each events (i.e. title, description, data) to create one",
         request=OpenApiRequest(
-            EventListSerializer,
+            EventSerializer,
             examples=[
                 OpenApiExample(
                     name="example",
@@ -161,21 +167,130 @@ class Eventist(APIView):
         ),
     )
     def post(self, request):
-        serializer = EventListSerializer(data=request.data)
+        serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"message": serializer.data})
         return Response({"error": serializer.errors})
 
-    def patch(self, request, id):
-        event = Event.objects.get(id=id)
-        serializer = EventListSerializer(event, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({"message": serializer.data})
-        return Response({"error": serializer.errors})
-
+    @extend_schema(
+        summary="Get all the events",
+        description="Returns the events and their details (e.g. title, date, description)",
+        responses={
+            200: OpenApiResponse(
+                EventSerializer,
+                examples=[
+                    OpenApiExample(
+                        name="example",
+                        value={
+                            "events": [
+                                {
+                                    "title": "Graduation Party",
+                                    "date": "12/06/2005",
+                                    "location": "Malden, MA",
+                                    "start_time": "12/06/2005 12:00PM",
+                                    "end_time": "12/06/2005 2:00PM",
+                                    "address": "120 Main St",
+                                    "description": "Celebration of high school graduates.",
+                                },
+                                {
+                                    "title": "Basketball Practice",
+                                    "date": "5/13/2026",
+                                    "location": "Everett, MA",
+                                    "start_time": "5/13/2026 06:00PM",
+                                    "end_time": "5/13/2026 08:00PM",
+                                    "address": "100 Salem St",
+                                    "description": "Have fun playing basketball.",
+                                },
+                            ]
+                        },
+                    ),
+                ],
+            ),
+        },
+    )
     def get(self, request):
         qs = Event.objects.all()
-        serializer = EventListSerializer(qs, many=True)
+        serializer = EventSerializer(qs, many=True)
         return Response({"events": serializer.data})
+
+
+class EventUpdateView(APIView):
+    permission_classes = [IsAdminUser]
+    authentication_classes = [TokenAuthentication]
+
+    @extend_schema(
+        summary="Update an event",
+        description="Input detais used (i.e. title, description, data) to change an event's info",
+        request=OpenApiRequest(
+            EventSerializer,
+            examples=[
+                OpenApiExample(
+                    name="example",
+                    value={
+                        "date": "12/12/2005",
+                        "location": "Medford, MA",
+                        "start_time": "12/12/2005 12:00PM",
+                        "end_time": "12/12/2005 2:00PM",
+                    },
+                ),
+            ],
+        ),
+    )
+    def patch(self, request, id):
+        event = Event.objects.get(id=id)
+        serializer = EventSerializer(event, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"message": serializer.data})
+        return Response({"error": serializer.errors})
+
+    def delete(self, request, id):
+        event = get_object_or_404(Event, id=id)
+        event.delete()
+        return Response({"message": "Event is deleted"}, status=status.HTTP_200_OK)
+
+
+class RosterUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+
+    def get_permissions(self):
+        if self.request.method == "GET":
+            return [IsAdminUser]
+        else:
+            return [IsAuthenticated]
+
+    def post(self, request, id):
+        event = get_object_or_404(Event, id=id)
+        event.roster.add(request.user)
+        return Response({"message": "Successfully updated roster"})
+
+    @extend_schema(
+        summary="Get the roster list",
+        description="Get all the users registered for an event",
+        request=OpenApiRequest(
+            UserSerializer,
+            examples=[
+                OpenApiExample(
+                    name="example",
+                    value={
+                        "data": [
+                            {"username": "tg", "email": "tg@gmail.com"},
+                            {"username": "adam", "email": "adamG@gmail.com"},
+                            {"username": "eve", "email": "eve@gmail.com"},
+                        ]
+                    },
+                ),
+            ],
+        ),
+    )
+    def get(self, request, id):
+        event = get_object_or_404(Event, id=id)
+        serializer = UserSerializer(event.roster, many=True)
+        return Response({"data": serializer.data})
+
+    def delete(self, request, id):
+        event = get_object_or_404(Event, id=id)
+        event.roster.remove(request.user)
+        return Response({"message": "Successfully unregistered"})

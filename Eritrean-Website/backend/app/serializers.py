@@ -24,7 +24,15 @@ class PasswordUpdateSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
 
 
-class EventListSerializer(serializers.Serializer):
+class EventSerializer(serializers.ModelSerializer):
+    start_time = serializers.DateTimeField(
+        format="%m/%d/%Y %I:%M %p", input_formats=["%m/%d/%Y %I:%M %p"]
+    )
+    end_time = serializers.DateTimeField(
+        format="%m/%d/%Y %I:%M %p", input_formats=["%m/%d/%Y %I:%M %p"]
+    )
+    date = serializers.DateField(format="%m/%d/%Y", input_formats=["%m/%d/%Y"])
+
     class Meta:
         model = Event
         fields = "__all__"
