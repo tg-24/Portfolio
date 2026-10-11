@@ -22,17 +22,17 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("spec/api/", SpectacularAPIView.as_view(), name="spec.api"),
+    path("spec/", SpectacularAPIView.as_view(), name="spec.api"),
     path(
-        "spec/swagg/",
+        "swagg/",
         SpectacularSwaggerView.as_view(url_name="spec.api"),
         name="spec.swagg",
     ),
     path("api/register/", RegisterView.as_view(), name="register"),
     path("api/login/", LoginView.as_view(), name="login"),
     path("api/logout/", LogoutView.as_view(), name="logout"),
-    path("api/update/info/", UpdateInfoView.as_view(), name="info"),
+    path("api/update/", UpdateInfoView.as_view(), name="info"),
     path("api/event/", EventView.as_view(), name="event"),
-    path("api/event_change/<int:id>/", EventUpdateView.as_view(), name="event_change"),
-    path("api/roster/<int:id>/", RosterUpdateView.as_view(), name="roster"),
+    path("api/event/<int:id>/", EventUpdateView.as_view(), name="event_change"),
+    path("api/event/<int:id>/roster/", RosterUpdateView.as_view(), name="roster"),
 ]

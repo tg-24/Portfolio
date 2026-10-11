@@ -155,7 +155,6 @@ class EventView(APIView):
                     name="example",
                     value={
                         "title": "Graduation Party",
-                        "date": "12/06/2005",
                         "location": "Malden, MA",
                         "start_time": "12/06/2005 12:00PM",
                         "end_time": "12/06/2005 2:00PM",
@@ -175,7 +174,7 @@ class EventView(APIView):
 
     @extend_schema(
         summary="Get all the events",
-        description="Returns the events and their details (e.g. title, date, description)",
+        description="Returns the events and their details (e.g. title, address, description)",
         responses={
             200: OpenApiResponse(
                 EventSerializer,
@@ -186,7 +185,6 @@ class EventView(APIView):
                             "events": [
                                 {
                                     "title": "Graduation Party",
-                                    "date": "12/06/2005",
                                     "location": "Malden, MA",
                                     "start_time": "12/06/2005 12:00PM",
                                     "end_time": "12/06/2005 2:00PM",
@@ -195,7 +193,6 @@ class EventView(APIView):
                                 },
                                 {
                                     "title": "Basketball Practice",
-                                    "date": "5/13/2026",
                                     "location": "Everett, MA",
                                     "start_time": "5/13/2026 06:00PM",
                                     "end_time": "5/13/2026 08:00PM",
@@ -228,7 +225,6 @@ class EventUpdateView(APIView):
                 OpenApiExample(
                     name="example",
                     value={
-                        "date": "12/12/2005",
                         "location": "Medford, MA",
                         "start_time": "12/12/2005 12:00PM",
                         "end_time": "12/12/2005 2:00PM",
@@ -248,18 +244,19 @@ class EventUpdateView(APIView):
     def delete(self, request, id):
         event = get_object_or_404(Event, id=id)
         event.delete()
-        return Response({"message": "Event is deleted"}, status=status.HTTP_200_OK)
+        return Response(
+            {"message": event.title + " is deleted"}, status=status.HTTP_200_OK
+        )
 
 
 class RosterUpdateView(APIView):
-    permission_classes = [IsAuthenticated]
     authentication_classes = [TokenAuthentication]
 
     def get_permissions(self):
         if self.request.method == "GET":
-            return [IsAdminUser]
+            return [IsAdminUser()]
         else:
-            return [IsAuthenticated]
+            return [IsAuthenticated()]
 
     def post(self, request, id):
         event = get_object_or_404(Event, id=id)
@@ -288,7 +285,7 @@ class RosterUpdateView(APIView):
     def get(self, request, id):
         event = get_object_or_404(Event, id=id)
         serializer = UserSerializer(event.roster, many=True)
-        return Response({"data": serializer.data})
+        return Response({"attendees": serializer.data})
 
     def delete(self, request, id):
         event = get_object_or_404(Event, id=id)

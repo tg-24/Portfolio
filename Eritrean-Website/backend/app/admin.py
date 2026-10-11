@@ -6,9 +6,10 @@ from .models import *
 
 @admin.register(WebUser)
 class WebAdmin(admin.ModelAdmin):
-    list_display = ["username", "first_name", "last_name", "email"]
+    list_display = ["id", "username", "first_name", "last_name", "email"]
 
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ["title", "location", "date", "start_time", "end_time"]
+    list_display = ["id", "title", "location", "start_time", "end_time"]
+    filter_horizontal = ["roster"]

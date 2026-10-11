@@ -31,7 +31,6 @@ class EventSerializer(serializers.ModelSerializer):
     end_time = serializers.DateTimeField(
         format="%m/%d/%Y %I:%M %p", input_formats=["%m/%d/%Y %I:%M %p"]
     )
-    date = serializers.DateField(format="%m/%d/%Y", input_formats=["%m/%d/%Y"])
 
     class Meta:
         model = Event
