@@ -1,4 +1,5 @@
 import "../styles/Home.css";
+import { useState, useEffect } from "react";
 import {
   FaLocationDot,
   FaRegCalendarCheck,
@@ -10,6 +11,21 @@ import community from "../assets/community.png";
 import culture from "../assets/culture.png";
 
 export default function Home() {
+  function NoEvents() {
+    return <div className="no-events">No current events listed.</div>;
+  }
+
+  useEffect(() => {
+    const getEvents = async () => {
+      const response = await fetch(" http://127.0.0.1:8000/api/event/", {
+        method: "GET",
+      });
+      const eventList = await response.json();
+      console.log(eventList);
+    };
+    getEvents();
+  }, []);
+
   return (
     <div className="home-page">
       <div className="home-header">
@@ -67,7 +83,13 @@ export default function Home() {
               <FaArrowRight className="event-arrow"></FaArrowRight>
             </NavLink>
           </div>
-          <div className="upcoming-list"></div>
+          <div className="upcoming-list">
+            {/* {events.length == 0 ? (
+              <noEvents/>
+            ) : (
+              
+            )} */}
+          </div>
         </div>
         {/* <div className="about_community">
           <section style={{ color: "white" }}>

@@ -142,8 +142,13 @@ class UpdatePasswordView(APIView):
 
 
 class EventView(APIView):
-    permission_classes = [IsAdminUser]
     authentication_classes = [TokenAuthentication]
+
+    def get_permissions(self):
+        if self.request.method == "GET":
+            return [IsAuthenticated()]
+        else:
+            return [IsAdminUser()]
 
     @extend_schema(
         summary="Create an event",

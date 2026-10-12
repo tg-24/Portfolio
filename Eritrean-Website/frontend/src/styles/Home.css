@@ -173,3 +173,7 @@
   margin: 0 auto;
   margin-top: 1rem;
 }
+
+.no-events {
+  background-color: lightgray;
+}

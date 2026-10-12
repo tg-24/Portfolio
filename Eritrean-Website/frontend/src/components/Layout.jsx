@@ -1,11 +1,11 @@
-import { Outlet, Link, NavLink } from "react-router";
-import { useState } from "react";
+import { Outlet, Link, NavLink, useNavigate } from "react-router";
 import "../styles/Layout.css";
 import logo from "../assets/logo.png";
 
 export default function Layout() {
   const homePath = "";
   const tab_list = ["Home", "About", "Events", "Community", "Contact"];
+  let navigate = useNavigate();
 
   return (
     <div className="container">
@@ -32,8 +32,11 @@ export default function Layout() {
             </NavLink>
           ))}
         </div>
-        <div className="sign_up">
-          <button className="register_button">Sign Up</button>
+        <div className="register_login">
+          <Link to={{ pathname: "login/" }}>Log in</Link>
+          <Link to={{ pathname: "register/" }}>
+            <button className="register_button">Register</button>
+          </Link>
         </div>
       </header>
       <main>

@@ -70,6 +70,20 @@
   color: green;
 }
 
+.register_login a:first-child {
+  text-decoration: none;
+  color: black;
+  margin-right: 2rem;
+}
+
+.register_login a:first-child:hover {
+  color: blue;
+}
+
+.register_login a:first-child:active {
+  color: black;
+}
+
 main {
   background-color: rgb(255, 241, 215);
   height: 100%;
