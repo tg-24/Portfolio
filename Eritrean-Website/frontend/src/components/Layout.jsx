@@ -6,7 +6,7 @@ export default function Layout() {
   const homePath = "";
   const tab_list = ["Home", "About", "Events", "Community", "Contact"];
   let navigate = useNavigate();
-
+  window.scrollTo(0, 0);
   return (
     <div className="container">
       <header className="header">

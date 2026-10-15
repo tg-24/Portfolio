@@ -1,11 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from rest_framework.authtoken.models import Token
-from rest_framework.authentication import authenticate, TokenAuthentication
+from rest_framework.authentication import authenticate, SessionAuthentication
 from django.db import models
 from drf_spectacular.utils import (
     extend_schema,
@@ -31,13 +29,17 @@ class RegisterView(APIView):
 
     @extend_schema(
         summary="Register a new user",
-        description="Input a username and password",
+        description="Input a username, password, first name, last name, and email",
         request=OpenApiRequest(
             request=UserSerializer,
             examples=[
                 OpenApiExample(
                     name="example",
-                    value={"username": "tg", "password": "1234"},
+                    value={
+                        "username": "tg",
+                        "password": "1234",
+                        "email": "tg@gmail.com",
+                    },
                 )
             ],
         ),
@@ -62,20 +64,28 @@ class LoginView(APIView):
     @extend_schema(
         summary="Login a user and return a generated token",
         description="Input a username and password",
+        request=OpenApiRequest(
+            request=UserSerializer,
+            examples=[
+                OpenApiExample(
+                    name="example",
+                    value={"username": "tg", "password": "1234"},
+                )
+            ],
+        ),
     )
     def post(self, request):
         user = authenticate(
             username=request.data["username"], password=request.data["password"]
         )
         if user is not None:
-            token, _ = Token.objects.get_or_create(user=user)
-            return Response({"token": token.key})
+            return Response({"token": })
         return Response({"error_message": "Invalid username or password"})
 
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
 
     @extend_schema(
         summary="Logout the current user",
@@ -88,7 +98,7 @@ class LogoutView(APIView):
 
 class UpdateInfoView(APIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
 
     @extend_schema(
         summary="Update personal info of the logged in user",
@@ -118,7 +128,7 @@ class UpdateInfoView(APIView):
 
 class UpdatePasswordView(APIView):
     permission_classes = [IsAuthenticated]
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
 
     @extend_schema(
         summary="Update password of the logged in user",
@@ -142,7 +152,7 @@ class UpdatePasswordView(APIView):
 
 
 class EventView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
 
     def get_permissions(self):
         if self.request.method == "GET":
@@ -219,7 +229,7 @@ class EventView(APIView):
 
 class EventUpdateView(APIView):
     permission_classes = [IsAdminUser]
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
 
     @extend_schema(
         summary="Update an event",
@@ -255,7 +265,7 @@ class EventUpdateView(APIView):
 
 
 class RosterUpdateView(APIView):
-    authentication_classes = [TokenAuthentication]
+    authentication_classes = [SessionAuthentication]
 
     def get_permissions(self):
         if self.request.method == "GET":
