@@ -4,8 +4,16 @@ body,
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 200vw;
+  min-height: 100%;
   overscroll-behavior: none;
+}
+
+.login-container {
+  min-height: 100vh;
+}
+
+.home-page {
+  min-height: 300vh;
 }
 
 .counter {

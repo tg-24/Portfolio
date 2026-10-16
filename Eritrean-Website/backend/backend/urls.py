@@ -28,6 +28,8 @@ urlpatterns = [
         SpectacularSwaggerView.as_view(url_name="spec.api"),
         name="spec.swagg",
     ),
+    path("api/csrf/", CSRFTokenAPIView.as_view(), name="csrf"),
+    path("api/user/", CurrentUserAPIView.as_view(), name="user"),
     path("api/register/", RegisterView.as_view(), name="register"),
     path("api/login/", LoginView.as_view(), name="login"),
     path("api/logout/", LogoutView.as_view(), name="logout"),

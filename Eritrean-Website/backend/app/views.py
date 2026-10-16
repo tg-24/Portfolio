@@ -1,9 +1,14 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, login, logout
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_protect
+from django.middleware.csrf import get_token
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from rest_framework.authentication import authenticate, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
+from rest_framework.authentication import SessionAuthentication
 from django.db import models
 from drf_spectacular.utils import (
     extend_schema,
@@ -17,6 +22,30 @@ from .serializers import *
 # Create your views here.
 
 
+class CSRFTokenAPIView(APIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return JsonResponse({"csrfToken": get_token(request)})
+
+
+class CurrentUserAPIView(APIView):
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(
+            {
+                "username": request.user.username,
+                "email": request.user.email,
+                "id": request.user.id,
+                "is_staff": request.user.is_staff,
+            }
+        )
+
+
+@method_decorator(csrf_protect, name="dispatch")
 class RegisterView(APIView):
     @extend_schema(
         summary="Get all registered Users",
@@ -60,6 +89,7 @@ class RegisterView(APIView):
         return Response({"errors": serializer.errors})
 
 
+@method_decorator(csrf_protect, name="dispatch")
 class LoginView(APIView):
     @extend_schema(
         summary="Login a user and return a generated token",
@@ -79,8 +109,19 @@ class LoginView(APIView):
             username=request.data["username"], password=request.data["password"]
         )
         if user is not None:
-            return Response({"token": })
-        return Response({"error_message": "Invalid username or password"})
+            login(request, user)
+            return Response(
+                {
+                    "id": user.id,
+                    "username": user.username,
+                    "email": user.email,
+                    "is_staff": user.is_staff,
+                }
+            )
+        return Response(
+            {"error_message": "Invalid username or password"},
+            status=status.HTTP_401_UNAUTHORIZED,
+        )
 
 
 class LogoutView(APIView):
@@ -92,7 +133,7 @@ class LogoutView(APIView):
         description="Delete the current auth_token",
     )
     def post(self, request):
-        request.auth.delete()
+        logout(request)
         return Response({"message": "Logged out successfully"})
 
 

@@ -17,11 +17,19 @@ export default function Home() {
 
   useEffect(() => {
     const getEvents = async () => {
-      const response = await fetch(" http://127.0.0.1:8000/api/event/", {
-        method: "GET",
-      });
-      const eventList = await response.json();
-      console.log(eventList);
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/event/", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const eventList = await response.json();
+        console.log(eventList);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getEvents();
   }, []);
