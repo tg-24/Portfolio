@@ -35,6 +35,19 @@
   background-color: papayawhip;
   width: 50%;
   height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-button:hover {
+  background-color: darkslategray;
+  color: white;
+}
+
+.input-group > input::placeholder {
+  font-size: 1rem;
 }
 
 .check-mark {

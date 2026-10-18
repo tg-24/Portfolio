@@ -4,12 +4,16 @@ body,
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
   overscroll-behavior: none;
 }
 
+footer {
+  height: 10vh;
+  flex-shrink: 0;
+}
+
 .login-container {
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .home-page {

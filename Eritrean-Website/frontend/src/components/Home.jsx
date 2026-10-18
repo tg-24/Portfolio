@@ -11,6 +11,22 @@ import community from "../assets/community.png";
 import culture from "../assets/culture.png";
 
 export default function Home() {
+  const [eventList, setEventList] = useState(null);
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sept",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
   function NoEvents() {
     return <div className="no-events">No current events listed.</div>;
   }
@@ -18,15 +34,22 @@ export default function Home() {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/event/", {
+        const response = await fetch("http://localhost:8000/api/event/", {
           method: "GET",
-          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
         });
-        const eventList = await response.json();
-        console.log(eventList);
+        if (!response.ok) {
+          setEventList(null);
+          return;
+        }
+        const events = await response.json();
+        for (let i of events.events) {
+          i.start_time = new Date(i.start_time);
+          i.end_time = new Date(i.end_time);
+        }
+        setEventList(events.events);
       } catch (error) {
         console.error(error);
       }
@@ -92,11 +115,39 @@ export default function Home() {
             </NavLink>
           </div>
           <div className="upcoming-list">
-            {/* {events.length == 0 ? (
-              <noEvents/>
+            {eventList ? (
+              eventList.map((event, val) => (
+                <article key={val} className="event-article">
+                  <div id="event-image">
+                    <img src={event.image} />
+                  </div>
+                  <span className="overall-details">
+                    <section className="dates">
+                      <p>{months[event.start_time.getMonth()]}</p>
+                      <h2>{event.start_time.getDate()}</h2>
+                    </section>
+                    <section className="details">
+                      <h3 className="event-title">{event.title}</h3>
+                      <span className="event-location">
+                        <FaLocationDot />
+                        {event.location}
+                      </span>
+                      <span className="time">
+                        {event.start_time.toLocaleTimeString("en-US", {
+                          timeStyle: "short",
+                        })}
+                        -
+                        {event.end_time.toLocaleTimeString("en-US", {
+                          timeStyle: "short",
+                        })}
+                      </span>
+                    </section>
+                  </span>
+                </article>
+              ))
             ) : (
-              
-            )} */}
+              <NoEvents />
+            )}
           </div>
         </div>
         {/* <div className="about_community">

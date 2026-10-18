@@ -172,3 +172,77 @@
 .no-events {
   background-color: lightgray;
 }
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 1rem;
+}
+
+.overall-details {
+  display: flex;
+}
+
+.upcoming-list {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.event-image {
+  display: block;
+  height: 4vh;
+}
+
+.event-article {
+  background-color: white;
+  width: fit-content;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 2px 2px lightgray;
+  padding: 1rem;
+}
+
+.event-article:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-article:active {
+  transform: scale(1.02);
+}
+
+.dates {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dates p {
+  font-size: 1.2rem;
+}
+
+.dates > * {
+  margin: 0;
+}
+
+.event-location,
+.time {
+  color: gray;
+}
+
+/* .overall-details::after {
+  content: "";
+  position: absolute;
+
+  right: 0;
+  left: 80rem;
+
+  width: 2px;
+  height: 1rem;
+  background-color: rgb(193, 186, 176);
+} */

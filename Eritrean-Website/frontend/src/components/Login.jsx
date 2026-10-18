@@ -1,31 +1,40 @@
 import { useState } from "react";
 import "../styles/login.css";
 import { FaCheck } from "react-icons/fa";
-export default function Login() {
+import { useCsrfToken } from "../hooks/useCsrfToken";
+import { useNavigate } from "react-router";
+export default function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/login/", {
+      const csrftoken = await useCsrfToken();
+      const response = await fetch("http://localhost:8000/api/login/", {
         method: "POST",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRFToken": csrfToken,
+          "X-CSRFToken": csrftoken,
         },
         body: JSON.stringify({
           username: username,
           password: password,
         }),
       });
-      const user_token = await response.json();
 
       if (!response.ok) {
         throw new Error("Invalid username or password");
       }
+      const user = await response.json();
+      console.log(user);
+      navigate("/");
+      setUser(user);
     } catch (error) {
-      console.error(error.message);
+      alert("Invalid username or password");
     }
   }
 
@@ -34,7 +43,7 @@ export default function Login() {
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Login Page</h1>
         <div className="input-group">
-          <label for="username">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             value={username}
             id="username"
@@ -46,14 +55,15 @@ export default function Login() {
           />
         </div>
         <div className="input-group">
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input
+            type="password"
             value={password}
             id="password"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="******"
+            placeholder="Enter a password"
             required
           />
         </div>

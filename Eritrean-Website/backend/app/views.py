@@ -197,7 +197,7 @@ class EventView(APIView):
 
     def get_permissions(self):
         if self.request.method == "GET":
-            return [IsAuthenticated()]
+            return [AllowAny()]
         else:
             return [IsAdminUser()]
 
@@ -216,6 +216,7 @@ class EventView(APIView):
                         "end_time": "12/06/2005 2:00PM",
                         "address": "120 Main St",
                         "description": "Celebration of high school graduates.",
+                        "image": "media/celebration.jpg",
                     },
                 ),
             ],
@@ -246,6 +247,7 @@ class EventView(APIView):
                                     "end_time": "12/06/2005 2:00PM",
                                     "address": "120 Main St",
                                     "description": "Celebration of high school graduates.",
+                                    "image": "media/celebration.jpg",
                                 },
                                 {
                                     "title": "Basketball Practice",
@@ -254,6 +256,7 @@ class EventView(APIView):
                                     "end_time": "5/13/2026 08:00PM",
                                     "address": "100 Salem St",
                                     "description": "Have fun playing basketball.",
+                                    "image": "media/basketball.jpg",
                                 },
                             ]
                         },

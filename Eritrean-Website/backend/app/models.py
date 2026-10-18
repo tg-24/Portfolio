@@ -20,3 +20,4 @@ class Event(models.Model):
     roster = models.ManyToManyField(
         WebUser, related_name="registered_users", blank=True
     )
+    image = models.ImageField(upload_to="events/", blank=True, null=True)

@@ -1,12 +1,31 @@
 import { Outlet, Link, NavLink, useNavigate } from "react-router";
 import "../styles/Layout.css";
 import logo from "../assets/logo.png";
+import { useCsrfToken } from "../hooks/useCsrfToken";
 
-export default function Layout() {
+export default function Layout({ user, setUser, loading }) {
   const homePath = "";
   const tab_list = ["Home", "About", "Events", "Community", "Contact"];
+
   let navigate = useNavigate();
   window.scrollTo(0, 0);
+
+  async function handleLogout() {
+    const csrfToken = await useCsrfToken();
+    const response = await fetch("http://localhost:8000/api/logout/", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrfToken,
+      },
+    });
+    let message = await response.json();
+    console.log(message);
+    navigate("login/");
+    setUser(null);
+  }
+
   return (
     <div className="container">
       <header className="header">
@@ -32,12 +51,23 @@ export default function Layout() {
             </NavLink>
           ))}
         </div>
-        <div className="register_login">
-          <Link to={{ pathname: "login/" }}>Log in</Link>
-          <Link to={{ pathname: "register/" }}>
-            <button className="register_button">Register</button>
-          </Link>
-        </div>
+        {loading ? (
+          <p>Loading...</p>
+        ) : user ? (
+          <div className="account">
+            <p>Logged in: {user.username}</p>
+            <button className="logout_button" onClick={handleLogout}>
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div className="register_login">
+            <Link to={{ pathname: "login/" }}>Log in</Link>
+            <Link to={{ pathname: "register/" }}>
+              <button className="register_button">Register</button>
+            </Link>
+          </div>
+        )}
       </header>
       <main>
         <Outlet className="bg-color:green" />
