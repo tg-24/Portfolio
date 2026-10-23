@@ -1,3 +1,10 @@
+@keyframes hover {
+  0%,
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 .home-header {
   height: 65vh;
 }
@@ -34,6 +41,7 @@
 .join:hover {
   background-color: darkgreen;
   color: black;
+  animation: 5s hover ease;
 }
 
 .learn {
@@ -51,6 +59,7 @@
   background-color: darkslategray;
   color: white;
   box-shadow: none;
+  animation: 5s hover ease;
 }
 
 .title {
@@ -235,14 +244,12 @@
   color: gray;
 }
 
-/* .overall-details::after {
+.overall-details:not(:last-of-type)::after {
   content: "";
-  position: absolute;
+  position: relative;
 
-  right: 0;
-  left: 80rem;
-
+  /* left: 10rem; */
   width: 2px;
-  height: 1rem;
+  height: 10rem;
   background-color: rgb(193, 186, 176);
-} */
+}

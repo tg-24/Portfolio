@@ -64,6 +64,7 @@
 .register_button:hover {
   background-color: darkgreen;
   color: black;
+  animation: 2s hover ease;
 }
 
 .active > p {
