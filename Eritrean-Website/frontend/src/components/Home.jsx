@@ -5,6 +5,7 @@ import {
   FaRegCalendarCheck,
   FaHandHoldingHeart,
   FaArrowRight,
+  FaClock,
 } from "react-icons/fa6";
 import { NavLink } from "react-router";
 import community from "../assets/community.png";
@@ -119,20 +120,28 @@ export default function Home() {
               eventList.map((event, val) => (
                 <article key={val} className="event-article">
                   <div id="event-image">
-                    <img src={event.image} />
+                    <img
+                      src={"http://localhost:8000" + event.image}
+                      alt="Not found image"
+                    />
                   </div>
                   <span className="overall-details">
                     <section className="dates">
-                      <p>{months[event.start_time.getMonth()]}</p>
-                      <h2>{event.start_time.getDate()}</h2>
+                      <div className="date-details">
+                        <p>{months[event.start_time.getMonth()]}</p>
+                        <h2>
+                          {String(event.start_time.getDate()).padStart(2, "0")}
+                        </h2>
+                      </div>
                     </section>
                     <section className="details">
                       <h3 className="event-title">{event.title}</h3>
                       <span className="event-location">
-                        <FaLocationDot />
+                        <FaLocationDot className="fa-dot" />
                         {event.location}
                       </span>
                       <span className="time">
+                        <FaClock className="fa-clock" />
                         {event.start_time.toLocaleTimeString("en-US", {
                           timeStyle: "short",
                         })}
