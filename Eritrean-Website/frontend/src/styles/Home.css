@@ -46,7 +46,7 @@
 .join:hover {
   background-color: darkgreen;
   color: black;
-  animation: 5s pulse infinite ease;
+  animation: 2s pulse infinite ease;
 }
 
 .learn {
@@ -64,7 +64,7 @@
   background-color: darkslategray;
   color: white;
   box-shadow: none;
-  animation: 5s pulse infinite ease;
+  animation: 2s pulse infinite ease;
 }
 
 .title {
@@ -214,7 +214,6 @@
 
 #event-image img {
   width: 100%;
-  height: 100%;
   object-fit: contain;
 }
 
@@ -222,8 +221,7 @@
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: fit-content;
-  height: 30vh;
+  height: 33vh;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -231,7 +229,7 @@
   padding: 1rem;
   padding-top: 0;
   border-radius: 5px;
-  width: 25%;
+  width: 30%;
 }
 
 .event-article:hover {
@@ -289,4 +287,57 @@
 
 .fa-dot {
   margin-right: 5px;
+}
+
+.event-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.about_community {
+  background-color: rgb(234, 221, 199);
+  margin-top: 10rem;
+  height: 40vh;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.about_community img {
+  height: 20rem;
+  margin-right: 4rem;
+  border-radius: 10px;
+}
+
+.about-signup {
+  border: 2px solid black;
+  font-size: large;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: green;
+  margin-top: 10px;
+  color: white;
+}
+
+.about-signup:hover {
+  animation: 4s pulse infinite ease;
+  color: black;
+}
+
+.about-story {
+  border: 2px solid green;
+  font-size: large;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: none;
+  margin-top: 10px;
+  color: green;
+  margin-right: 1rem;
+}
+
+.about-story:hover {
+  animation: 4s pulse infinite ease;
 }

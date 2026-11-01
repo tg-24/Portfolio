@@ -10,6 +10,7 @@ import {
 import { NavLink } from "react-router";
 import community from "../assets/community.png";
 import culture from "../assets/culture.png";
+import about from "../assets/about.png";
 
 export default function Home() {
   const [eventList, setEventList] = useState(null);
@@ -159,19 +160,27 @@ export default function Home() {
             )}
           </div>
         </div>
-        {/* <div className="about_community">
-          <section style={{ color: "white" }}>
-            The Eritrean Community based in Malden, MA is a place for Ertirean
-            families to feel welcome and to stay connected. Here we host events
-            like weekly basketball practices with kids and adults, and
-            educational activities like coding classes. We even facilitate high
-            school graduation parties as a proper send off as the graduates
-            transition into adulthood to support them and make sure they never
-            forget where they came from. On Fridays kids and adults feel free to
-            stop by our main location next to the Mystic Vally YMCA center. We
-            have food and drinks for us all to share.
-          </section>
-        </div> */}
+        <div className="about_community">
+          <img src={about} />
+          <div className="about-content">
+            <h1>About our Community</h1>
+            <section>
+              The Eritrean Community based in Malden, MA is a place for Ertirean
+              families to feel welcome and to stay connected. Here we host
+              events like weekly basketball practices with kids and adults, and
+              educational activities like coding classes. We even facilitate
+              high school graduation parties as a proper send off as the
+              graduates transition into adulthood to support them and make sure
+              they never forget where they came from. On Fridays kids and adults
+              feel free to stop by our main location next to the Mystic Vally
+              YMCA center. We have food and drinks for us all to share.
+            </section>
+            <NavLink to="register/">
+              <button className="about-story">Our Story</button>
+              <button className="about-signup">Get Involved</button>
+            </NavLink>
+          </div>
+        </div>
       </div>
     </div>
   );
