@@ -175,8 +175,10 @@ export default function Home() {
               feel free to stop by our main location next to the Mystic Vally
               YMCA center. We have food and drinks for us all to share.
             </section>
-            <NavLink to="register/">
+            <NavLink to="about/">
               <button className="about-story">Our Story</button>
+            </NavLink>
+            <NavLink to="register/">
               <button className="about-signup">Get Involved</button>
             </NavLink>
           </div>
