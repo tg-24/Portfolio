@@ -1,6 +1,7 @@
 import { projects } from "./assets/projects";
 import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
 import "./App.css";
+import snowypeaks from "./assets/snowypeaks.png";
 
 export default function App() {
   return (
@@ -33,32 +34,44 @@ export default function App() {
         </aside>
       </header>
       <div className="divider"></div>
-      <main className="content">
-        <h2>Selected Projects</h2>
-        <p>
-          A few recent builds--crafted with a calm dark palette clear hierarchy,
-          and micro-
-          <br />
-          interactions that make the UI feel alive.
-        </p>
-        <div className="main">
-          {projects.map((proj, index) => (
-            <article key={index}>
-              <header>
-                <h4>{proj.title}</h4>
-                <div className="circle">
-                  <FaArrowRight className="proj_arrow" />
-                </div>
-              </header>
-              <p>{proj.description}</p>
-              <main className="skill_list">
-                {proj.skills.map((skill, index) => (
-                  <span key={index}>{skill}</span>
-                ))}
-              </main>
-            </article>
-          ))}
-        </div>
+      <main className="body">
+        <section className="content">
+          <h2>Selected Projects</h2>
+          <p>
+            A few recent builds--crafted with a calm dark palette clear
+            hierarchy, and micro-
+            <br />
+            interactions that make the UI feel alive.
+          </p>
+          <div className="projects">
+            {projects.map((proj, index) => (
+              <article key={index}>
+                <header>
+                  <h4>{proj.title}</h4>
+                  <div className="circle">
+                    <FaArrowRight className="proj_arrow" />
+                  </div>
+                </header>
+                <p>{proj.description}</p>
+                <main className="skill_list">
+                  {proj.skills.map((skill, index) => (
+                    <span key={index}>{skill}</span>
+                  ))}
+                </main>
+              </article>
+            ))}
+          </div>
+        </section>
+        <div className="divider"></div>
+        <section className="about">
+          <aside>
+            <img className="snowypeaks" src={snowypeaks} />
+          </aside>
+          <article>
+            <h2>About Me</h2>
+          </article>
+        </section>
+        <div className="divider"></div>
       </main>
     </div>
   );

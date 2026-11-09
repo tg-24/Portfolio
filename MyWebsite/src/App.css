@@ -4,7 +4,7 @@ html,
   background-color: #090e1b;
   color: white;
   margin: 0;
-  min-height: 200vh;
+  min-height: 300vh;
 }
 
 .container {
@@ -17,16 +17,21 @@ html,
   min-height: 60vh;
   background:
     radial-gradient(
-      ellipse 45% 85% at 15% 5%,
-      rgba(30, 65, 110, 0.65) 0%,
+      ellipse 25% 65% at 15% 5%,
+      rgba(30, 65, 110, 0.45) 0%,
       transparent 100%
     ),
     radial-gradient(
-      ellipse 40% 80% at 90% 0%,
-      rgba(20, 85, 105, 0.65) 0%,
+      ellipse 20% 60% at 90% 0%,
+      rgba(20, 85, 105, 0.45) 0%,
       transparent 100%
     ),
-    #090e1b;
+    radial-gradient(
+        ellipse 10% 20% at 90% 80%,
+        rgba(40, 85, 125, 0.2) 0%,
+        transparent 100%
+      )
+      #090e1b;
   display: flex;
   justify-content: space-around;
   padding-top: 4rem;
@@ -49,6 +54,7 @@ html,
   width: 100%;
   background-color: #242b3a;
   height: 2px;
+  margin-top: 4rem;
 }
 
 .contact_btn {
@@ -119,12 +125,12 @@ html,
   margin-right: 1rem;
 }
 
-.main {
+.projects {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.main article {
+.projects article {
   background-color: #101827;
   border: 2px solid #242b3a;
   width: 25rem;
@@ -133,17 +139,17 @@ html,
   border-radius: 10px;
 }
 
-.main article header {
+.projects article header {
   display: flex;
   justify-content: space-between;
 }
 
-.main h4,
+.projects h4,
 .content h2 {
   font-weight: 100;
 }
 
-.main h4 {
+.projects h4 {
   font-size: 1.2rem;
 }
 
@@ -160,10 +166,9 @@ html,
 .content {
   width: 80%;
   margin: 0 auto;
-  margin-top: 5rem;
 }
 
-.main span {
+.projects span {
   border: 1px solid #152238;
   border-radius: 10px;
   background-color: #152238;
@@ -182,4 +187,22 @@ html,
 
 .skill_list li {
   white-space: nowrap;
+}
+
+.about {
+  width: 80%;
+  display: flex;
+}
+
+.about aside {
+  width: 30%;
+}
+
+.body > section {
+  margin-top: 4rem;
+}
+
+.snowypeaks {
+  width: 20vw;
+  border-radius: 10px;
 }
