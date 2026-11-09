@@ -1,6 +1,10 @@
-body {
+body,
+html,
+:root {
   background-color: #090e1b;
   color: white;
+  margin: 0;
+  min-height: 200vh;
 }
 
 .container {
@@ -10,32 +14,35 @@ body {
 
 .hero {
   width: 100vw;
-  min-height: 80vh;
+  min-height: 60vh;
   background:
     radial-gradient(
       ellipse 45% 85% at 15% 5%,
-      rgba(30, 65, 110, 0.45) 0%,
+      rgba(30, 65, 110, 0.65) 0%,
       transparent 100%
     ),
     radial-gradient(
       ellipse 40% 80% at 90% 0%,
-      rgba(20, 85, 105, 0.35) 0%,
+      rgba(20, 85, 105, 0.65) 0%,
       transparent 100%
     ),
     #090e1b;
   display: flex;
   justify-content: space-around;
-  padding-top: 2rem;
+  padding-top: 4rem;
 }
 
 .hero > section > h1 {
   font-weight: 100;
-  font-size: 2.5rem;
+  font-size: 4rem;
 }
 
 .description {
   width: 50vw;
   color: #94a3b8;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .divider {
@@ -50,7 +57,7 @@ body {
   border-radius: 10px;
   font-size: 1rem;
   color: #cbd5e1;
-  margin-left: 10px;
+  margin-left: 20px;
   padding: 0.6rem;
 }
 
@@ -76,7 +83,8 @@ body {
   line-height: 1.7rem;
 }
 
-.focus-header {
+.focus-header,
+.content p {
   color: #94a3b8;
 }
 
@@ -84,11 +92,94 @@ body {
   color: #38bdf8;
 }
 
-.interests {
+.area-container {
   background-color: #101827;
   border: 2px solid #242b3a;
   width: 25rem;
   height: fit-content;
   padding-left: 20px;
   border-radius: 10px;
+}
+
+.proj_arrow {
+  color: #94a3b8;
+  position: relative;
+  top: 4px;
+  left: 4px;
+  transform: rotate(-45deg);
+}
+
+.circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #242b3a;
+  border-radius: 50%;
+  padding: 3px;
+  align-self: center;
+  margin-right: 1rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.main article {
+  background-color: #101827;
+  border: 2px solid #242b3a;
+  width: 25rem;
+  min-height: 12rem;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+
+.main article header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main h4,
+.content h2 {
+  font-weight: 100;
+}
+
+.main h4 {
+  font-size: 1.2rem;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+.content p {
+  margin-bottom: 2rem;
+  line-height: 1.5rem;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.main span {
+  border: 1px solid #152238;
+  border-radius: 10px;
+  background-color: #152238;
+  margin-right: 5px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.skill_list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  margin-bottom: 10px;
+}
+
+.skill_list li {
+  white-space: nowrap;
 }

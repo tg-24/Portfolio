@@ -1,5 +1,5 @@
 import { projects } from "./assets/projects";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
 import "./App.css";
 
 export default function App() {
@@ -8,8 +8,8 @@ export default function App() {
       <header className="hero">
         <section>
           <h1>
-            Building practical software solutions through
-            <br /> thoughtful engineering.
+            Product-focused engineer building fast, <br />
+            elegant web experiences.
           </h1>
           <p className="description">
             I'm a Computer Science student passionate about backend development,
@@ -22,7 +22,7 @@ export default function App() {
           </button>
           <button className="contact_btn">Contact</button>
         </section>
-        <aside className="interests">
+        <aside className="area-container">
           <p className="focus-header">Focus Areas</p>
           <ul className="focus-list">
             <li>Design systems with crisp tokens</li>
@@ -33,6 +33,33 @@ export default function App() {
         </aside>
       </header>
       <div className="divider"></div>
+      <main className="content">
+        <h2>Selected Projects</h2>
+        <p>
+          A few recent builds--crafted with a calm dark palette clear hierarchy,
+          and micro-
+          <br />
+          interactions that make the UI feel alive.
+        </p>
+        <div className="main">
+          {projects.map((proj, index) => (
+            <article key={index}>
+              <header>
+                <h4>{proj.title}</h4>
+                <div className="circle">
+                  <FaArrowRight className="proj_arrow" />
+                </div>
+              </header>
+              <p>{proj.description}</p>
+              <main className="skill_list">
+                {proj.skills.map((skill, index) => (
+                  <span key={index}>{skill}</span>
+                ))}
+              </main>
+            </article>
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
