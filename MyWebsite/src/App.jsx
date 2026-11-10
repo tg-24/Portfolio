@@ -1,9 +1,14 @@
 import { projects } from "./assets/projects";
-import { FaArrowAltCircleRight, FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaDatabase, FaCode, FaLayerGroup } from "react-icons/fa";
 import "./App.css";
 import snowypeaks from "./assets/snowypeaks.png";
 
 export default function App() {
+  let about_interests = [
+    ["Full-stack Development", <FaCode />],
+    ["Databases & Backend", <FaDatabase />],
+    ["Systems & Design", <FaLayerGroup />],
+  ];
   return (
     <div className="container">
       <header className="hero">
@@ -18,7 +23,10 @@ export default function App() {
             efficient systems, exploring new technologies, and turning complex
             ideas into functional software.
           </p>
-          <button className="projects_btn">
+          <button
+            className="projects_btn"
+            onClick={() => window.scrollTo(0, window.innerHeight / 3)}
+          >
             View projects <FaArrowRight className="arrow" />
           </button>
           <button className="contact_btn">Contact</button>
@@ -69,6 +77,20 @@ export default function App() {
           </aside>
           <article>
             <h2>About Me</h2>
+            <p className="description">
+              I'm a junior Computer Science student who enjoys turning ideas
+              into reliable, user-friendly software. I'm especially interested
+              in backend systems, databases, and building full-stack web
+              applications that solve real problems.
+            </p>
+            <div className="about_interests">
+              {about_interests.map((interest, index) => (
+                <article key={index}>
+                  {interest[1]}
+                  <p>{interest[0]}</p>
+                </article>
+              ))}
+            </div>
           </article>
         </section>
         <div className="divider"></div>
