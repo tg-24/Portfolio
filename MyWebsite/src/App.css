@@ -119,9 +119,6 @@ html,
 
 .proj_arrow {
   color: #94a3b8;
-  position: relative;
-  top: 4px;
-  left: 4px;
   transform: rotate(-45deg);
 }
 
@@ -133,6 +130,9 @@ html,
   padding: 3px;
   align-self: center;
   margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .projects {
@@ -260,4 +260,24 @@ html,
 
 button:active {
   animation: 1s ease click;
+}
+
+.all_projects {
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.all_projects > * {
+  color: #38bdf8;
+}
+
+.all_projects a {
+  text-decoration: none;
+}
+
+.git_icon {
+  position: relative;
+  bottom: 1px;
 }
