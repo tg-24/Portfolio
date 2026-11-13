@@ -122,6 +122,10 @@ html,
   transform: rotate(-45deg);
 }
 
+.proj_arrow.visible {
+  transform: rotate(135deg);
+}
+
 .circle {
   width: 1.5rem;
   height: 1.5rem;

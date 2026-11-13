@@ -18,7 +18,6 @@ export default function App() {
             index
             element={<Home about_interests={about_interests} />}
           ></Route>
-          {/* <Route path="eventView/:str" element={<EventView />}></Route> */}
         </Route>
       </Routes>
     </Router>
