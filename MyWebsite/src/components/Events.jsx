@@ -11,9 +11,11 @@ export default function Events() {
   let eventViews = EventView(popUpRef, setPopUp);
   useEffect(() => {
     if (popUp) {
-      popUpRef.current.style.position = "absolute";
-      popUpRef.current.style.top = window.innerHeight / 2 + "px";
-      popUpRef.current.style.left = window.innerWidth / 2 + "px";
+      popUpRef.current.style.position = "fixed";
+      popUpRef.current.style.top = "50%";
+      popUpRef.current.style.left = "50%";
+      popUpRef.current.style.transform = "translate(-50%, -50%)";
+      document.body.style.overflow = "hidden";
       console.log(modIndex);
     }
     if (modIndex !== null) {
@@ -21,6 +23,9 @@ export default function Events() {
         .querySelector(".projects")
         .children[modIndex].querySelector(".proj_arrow");
       event_arrow.classList.toggle("visible");
+    }
+    if (popUp == null) {
+      document.body.style.overflow = "";
     }
   }, [popUp]);
 
