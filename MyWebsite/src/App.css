@@ -5,6 +5,15 @@
   }
 }
 
+@keyframes zoom {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 body,
 html,
 :root {
@@ -29,12 +38,16 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #242b3a;
+  background: #475569;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #3b82f6;
+  background: #64748b;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #60a5fa;
 }
 
 .container {
@@ -174,6 +187,9 @@ html {
   min-height: 12rem;
   padding-left: 20px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .projects article header {
@@ -205,16 +221,6 @@ html {
   margin: 0 auto;
 }
 
-.projects span {
-  border: 1px solid #152238;
-  border-radius: 10px;
-  background-color: #152238;
-  margin-right: 5px;
-  padding: 5px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
 .skill_list {
   display: flex;
   flex-wrap: wrap;
@@ -222,7 +228,14 @@ html {
   margin-bottom: 10px;
 }
 
-.skill_list li {
+.skill_list > * {
+  border: 1px solid #152238;
+  border-radius: 10px;
+  background-color: #152238;
+  margin-right: 5px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
   white-space: nowrap;
 }
 
@@ -307,4 +320,24 @@ button:active {
 .git_icon {
   position: relative;
   bottom: 1px;
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.popup-contain {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+  z-index: 1001;
+}
+
+.popup-contain > * {
+  animation: 2s ease zoom;
 }

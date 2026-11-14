@@ -4,12 +4,16 @@ const projects = [
   {
     title: "Eritrean Community Website",
     description:
-      "A minimal writing app with offline-first sync, full-text search, and a calm dark mode that feels like a studio.",
-    skills: ["React", "TypeScript", "UX"],
-    bullets: [],
-    link: "",
+      "A full-stack web application for the Eritrean community at Union College to share events, resources, and cultural information.",
+    skills: ["React", "Django", "PostgreSQL", "REST API"],
+    bullets: [
+      "User authentication & roles",
+      "Event registration system",
+      "REST API with Django",
+    ],
+    link: "https://github.com/tg-24/Portfolio/tree/8fc07c0be759335295319d36f7c7ae867091037f/Eritrean-Website",
     video: "",
-    image: "",
+    image: "/Eritrean_Community.png",
   },
   {
     title: "Medical Program",

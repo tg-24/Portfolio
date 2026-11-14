@@ -15,7 +15,8 @@ export default function Events() {
       popUpRef.current.style.top = "50%";
       popUpRef.current.style.left = "50%";
       popUpRef.current.style.transform = "translate(-50%, -50%)";
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
+      document.body.style.background = "blur";
       console.log(modIndex);
     }
     if (modIndex !== null) {
@@ -70,9 +71,12 @@ export default function Events() {
         <FaArrowRight className="github" />
       </span>
       {popUp && (
-        <div className="popup-container" ref={popUpRef}>
-          {popUp}
-        </div>
+        <>
+          <div className="popup-overlay" />
+          <div className="popup-contain" ref={popUpRef}>
+            {popUp}
+          </div>
+        </>
       )}
     </section>
   );
