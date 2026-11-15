@@ -1,6 +1,8 @@
 import Hero from "./Hero.jsx";
 import About from "./About.jsx";
 import Events from "./Events.jsx";
+import Footer from "./Footer.jsx";
+import Contact from "./Contact.jsx";
 
 export default function Home({ about_interests }) {
   return (
@@ -12,6 +14,8 @@ export default function Home({ about_interests }) {
         <div className="divider"></div>
         <Events />
         <div className="divider"></div>
+        <Footer />
+        <Contact />
       </main>
     </div>
   );
