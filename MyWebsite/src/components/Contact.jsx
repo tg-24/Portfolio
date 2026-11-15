@@ -1,25 +1,24 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import "../styles/Contact.css";
 
 export default function Contact() {
   return (
-    <footer className="site-footer">
-      <div>
-        <h3>Thomas</h3>
-        <p>© 2026 Thomas Ghile. All rights reserved.</p>
+    <div className="contact-container">
+      <h1>Contact</h1>
+      <div className="contacts">
+        <div>
+          <h2>Let's build something together.</h2>
+          <p className="description">
+            I'm open to internship opportunities, research, and collaborative
+            projects.
+          </p>
+        </div>
+        <a href="https://linkedin.com/in/thomasghile" target="__blank">
+          <button className="projects_btn">
+            Contact me <FaArrowRight className="arrow" />
+          </button>
+        </a>
       </div>
-
-      <div className="footer-links">
-        <a href="YOUR_GITHUB_URL">
-          <FaGithub />
-        </a>
-        <a href="YOUR_LINKEDIN_URL">
-          <FaLinkedin />
-        </a>
-        <a href="mailto:YOUR_EMAIL">
-          <FaEnvelope />
-        </a>
-      </div>
-    </footer>
+    </div>
   );
 }

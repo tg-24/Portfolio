@@ -1,33 +1,33 @@
-.footer-container {
-  width: 100%;
-}
-
-.footer {
-  background-color: #101827;
-  border: 2px solid #242b3a;
+.site-footer {
+  margin: 0 auto;
   width: 80%;
-  margin: 2rem auto 0;
-  height: fit-content;
-  border-radius: 10px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-top: 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  box-sizing: border-box;
 }
 
-.footer .projects_btn {
-  height: fit-content;
-}
-
-.footer .description {
-  margin-top: 0.5rem;
-}
-
-.footer h2 {
-  font-weight: 100;
+.site-footer h2 {
   font-size: 2rem;
-  margin-bottom: 0;
+  font-weight: 100;
+}
+
+.site-footer h2,
+.site-footer .description {
+  margin: 1rem 0;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 15vw;
+}
+
+.footer-links > a > * {
+  font-size: 2rem;
+  color: white;
+
+  :hover {
+    color: aqua;
+  }
 }

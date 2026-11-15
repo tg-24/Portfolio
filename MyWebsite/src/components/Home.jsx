@@ -14,8 +14,9 @@ export default function Home({ about_interests }) {
         <div className="divider"></div>
         <Events />
         <div className="divider"></div>
-        <Footer />
         <Contact />
+        <div className="divider"></div>
+        <Footer />
       </main>
     </div>
   );

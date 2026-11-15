@@ -1,23 +1,25 @@
-import { FaArrowRight } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import "../styles/Footer.css";
 
 export default function Footer() {
   return (
-    <div className="footer-container">
-      <div className="footer">
-        <div>
-          <h2 className="">Let's build something together.</h2>
-          <p className="description">
-            I'm open to internship opportunities, research, and collaborative
-            projects.
-          </p>
-        </div>
-        <a href="https://linkedin.com/in/thomasghile" target="__blank">
-          <button className="projects_btn">
-            Contact me <FaArrowRight className="arrow" />
-          </button>
+    <footer className="site-footer">
+      <div>
+        <h2>Thomas</h2>
+        <p className="description">© 2026 Thomas Ghile. All rights reserved.</p>
+      </div>
+
+      <div className="footer-links">
+        <a target="__blank" href="https://github.com/tg-24/Portfolio.git">
+          <FaGithub />
+        </a>
+        <a target="__blank" href="https://linkedin.com/in/thomasghile">
+          <FaLinkedin />
+        </a>
+        <a target="_blank" href="mailto:tmghile05@gmail.com">
+          <FaEnvelope />
         </a>
       </div>
-    </div>
+    </footer>
   );
 }

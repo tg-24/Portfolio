@@ -16,7 +16,11 @@ export default function Hero() {
         </p>
         <button
           className="projects_btn"
-          onClick={() => window.scrollTo(0, window.innerHeight / 3)}
+          onClick={() =>
+            document.querySelector(".projects").scrollIntoView({
+              behavior: "smooth",
+            })
+          }
         >
           View projects <FaArrowRight className="arrow" />
         </button>
