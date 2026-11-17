@@ -2,7 +2,7 @@ import { projects } from "../assets/projects.jsx";
 import { FaExternalLinkAlt, FaTimes, FaGithub, FaCheck } from "react-icons/fa";
 import "../styles/EventView.css";
 
-export default function EventView(popUpRef, setPopUp) {
+export default function EventView(popUpRef, setPopUp, setDemo) {
   const eventViews = [];
 
   projects.map((project, index) =>
@@ -47,7 +47,13 @@ export default function EventView(popUpRef, setPopUp) {
                 </a>
               </span>
               <span className="demo_links">
-                <button className="demo_btn">
+                <button
+                  className="demo_btn"
+                  onClick={() => {
+                    setDemo(project.video);
+                    setPopUp(null);
+                  }}
+                >
                   Live Demo
                   <FaExternalLinkAlt />
                 </button>

@@ -6,9 +6,10 @@ import { useState, useEffect, useRef } from "react";
 export default function Events() {
   const [popUp, setPopUp] = useState(null);
   const [modIndex, setMI] = useState(null);
+  const [demo, setDemo] = useState(null);
   const popUpRef = useRef(null);
 
-  let eventViews = EventView(popUpRef, setPopUp);
+  let eventViews = EventView(popUpRef, setPopUp, setDemo);
   useEffect(() => {
     if (popUp) {
       popUpRef.current.style.position = "fixed";
@@ -16,7 +17,6 @@ export default function Events() {
       popUpRef.current.style.left = "50%";
       popUpRef.current.style.transform = "translate(-50%, -50%)";
       document.body.style.overflowY = "hidden";
-      document.body.style.background = "blur";
       console.log(modIndex);
     }
     if (modIndex !== null) {
@@ -77,6 +77,15 @@ export default function Events() {
             {popUp}
           </div>
         </>
+      )}
+      {demo && (
+        <div className="video_popup">
+          <button onClick={() => setDemo(false)}>✕</button>
+          <video controls width="100%">
+            <source src={demo} type="video/mp4" />
+            Your browser does not support video playback.
+          </video>
+        </div>
       )}
     </section>
   );

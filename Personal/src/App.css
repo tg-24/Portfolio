@@ -179,6 +179,7 @@ html {
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  scroll-margin-top: 80px;
 }
 
 .projects article {
@@ -341,4 +342,42 @@ button:active {
 
 .popup-contain > * {
   animation: 2s ease zoom;
+}
+
+.video_popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  z-index: 1000;
+  background: #111a2b;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.video_popup video {
+  width: 100%;
+}
+
+.video_popup button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2rem;
+  height: 2rem;
+
+  background-color: #111a2b;
+  color: white;
+  border: 1px solid #334e70;
+  border-radius: 50%;
+
+  font-size: 1.3rem;
+  cursor: pointer;
 }
