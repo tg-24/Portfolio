@@ -1,5 +1,5 @@
 import { FaDatabase, FaCode, FaLayerGroup } from "react-icons/fa";
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { HashRouter as Router, Routes, Route } from "react-router";
 import Home from "./components/Home.jsx";
 import Layout from "./components/Layout.jsx";
 import "./App.css";
