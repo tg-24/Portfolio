@@ -12,8 +12,8 @@ const projects = [
       "REST API with Django",
     ],
     link: "https://github.com/tg-24/Portfolio/tree/8fc07c0be759335295319d36f7c7ae867091037f/Eritrean-Website",
-    video: "/EritreanCommunity.mp4",
-    image: "/Eritrean_Community.png",
+    video: `${import.meta.env.BASE_URL}EritreanCommunity.mp4`,
+    image: `${import.meta.env.BASE_URL}Eritrean_Community.png`,
   },
   {
     title: "Medical Program",
