@@ -17,14 +17,23 @@ export default function Hero() {
         <button
           className="projects_btn"
           onClick={() =>
-            document.querySelector(".projects").scrollIntoView({
+            document.querySelector(".content").scrollIntoView({
               behavior: "smooth",
             })
           }
         >
           View projects <FaArrowRight className="arrow" />
         </button>
-        <button className="contact_btn">Contact</button>
+        <button
+          className="contact_btn"
+          onClick={() =>
+            document.querySelector(".contacts").scrollIntoView({
+              behavior: "smooth",
+            })
+          }
+        >
+          Contact
+        </button>
       </section>
       <aside className="area-container">
         <p className="focus-header">Focus Areas</p>
