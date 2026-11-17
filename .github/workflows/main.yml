@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./react-portfolio
+        working-directory: ./Personal
 
     environment:
       name: github-pages
@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: react-portfolio/package-lock.json
+          cache-dependency-path: Personal/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -45,7 +45,7 @@ jobs:
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: react-portfolio/dist
+          path: Personal/dist
 
       - name: Deploy
         id: deployment
