@@ -1,0 +1,60 @@
+.about {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin: 0 auto;
+}
+
+.about h2 {
+  font-weight: 100;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.about aside {
+  width: 30%;
+}
+
+.about p {
+  margin-top: 0.2rem;
+}
+
+.about_interests {
+  display: flex;
+  align-items: stretch;
+}
+
+.about_interests > article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.about_interests > article > p {
+  font-size: 1.5rem;
+  width: 60%;
+  margin-top: 1rem;
+}
+
+.about_interests > article:not(:last-of-type) {
+  border-right: 1px solid #242b3a;
+}
+
+.about_interests > article > :first-child {
+  color: #38bdf8;
+  font-size: 1.8rem;
+}
+
+.headshot {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px 1px rgba(230, 235, 236, 0.6);
+  margin-top: 1rem;
+}

@@ -241,63 +241,8 @@ html {
   white-space: nowrap;
 }
 
-.about {
-  width: 80%;
-  display: flex;
-  position: relative;
-  left: 10%;
-}
-
-.about h2 {
-  font-weight: 100;
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.about aside {
-  width: 30%;
-}
-
 .body > section {
   margin-top: 2rem;
-}
-
-.snowypeaks {
-  width: 20vw;
-  border-radius: 10px;
-  box-shadow: 1px 1px 3px 1px rgba(230, 235, 236, 0.6);
-  margin-top: 1rem;
-}
-
-.about p {
-  margin-top: 0.2rem;
-}
-
-.about_interests {
-  display: flex;
-  justify-content: space-around;
-}
-
-.about_interests > article > p {
-  font-size: 1.5rem;
-  width: 60%;
-  margin-top: 1rem;
-}
-
-.about_interests > article:not(:last-of-type)::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  bottom: 1.2rem;
-  transform: translateX(13rem);
-  height: 7rem;
-  background-color: #242b3a;
-  width: 1px;
-}
-
-.about_interests > article > :first-child {
-  color: #38bdf8;
-  font-size: 1.8rem;
 }
 
 button:active {

@@ -1,10 +1,11 @@
-import snowypeaks from "../assets/snowypeaks.png";
+import headshot from "../assets/Headshot.jpg";
+import "../styles/About.css";
 
 export default function About({ about_interests }) {
   return (
     <section className="about">
       <aside>
-        <img className="snowypeaks" src={snowypeaks} />
+        <img className="headshot" src={headshot} />
       </aside>
       <article>
         <h2>About Me</h2>
