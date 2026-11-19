@@ -22,8 +22,8 @@ const projects = [
     skills: ["Dashboards", "Charts", "Design systems"],
     bullets: [],
     link: "https://github.com/tg-24/IO_TG_Medical_Program.git",
-    video: "",
-    image: "",
+    video: `${import.meta.env.BASE_URL}Medical.mp4`,
+    image: `${import.meta.env.BASE_URL}Medical.png`,
   },
   {
     title: "Blue Footed Booby",
@@ -32,7 +32,7 @@ const projects = [
     skills: ["UI", "Accessibility", "Security"],
     bullets: [],
     link: "https://github.com/tg-24/Portfolio/tree/8be336ecb031a5ac906f5e870387ab287f04a3d9/blue_footed_booby",
-    video: "",
-    image: "",
+    video: `${import.meta.env.BASE_URL}blue_footed_booby.mp4`,
+    image: `${import.meta.env.BASE_URL}blue_footed_booby.png`,
   },
 ];
