@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Events() {
   const [popUp, setPopUp] = useState(null);
-  const [modIndex, setMI] = useState(null);
   const [demo, setDemo] = useState(null);
   const popUpRef = useRef(null);
 
@@ -17,13 +16,6 @@ export default function Events() {
       popUpRef.current.style.left = "50%";
       popUpRef.current.style.transform = "translate(-50%, -50%)";
       document.body.style.overflowY = "hidden";
-      console.log(modIndex);
-    }
-    if (modIndex !== null) {
-      let event_arrow = document
-        .querySelector(".projects")
-        .children[modIndex].querySelector(".proj_arrow");
-      event_arrow.classList.toggle("visible");
     }
     if (popUp == null) {
       document.body.style.overflow = "";
@@ -44,7 +36,6 @@ export default function Events() {
           <article
             onClick={() => {
               setPopUp(eventViews[index]);
-              setMI(index);
             }}
             key={index}
           >
