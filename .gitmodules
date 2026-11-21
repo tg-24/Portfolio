@@ -1,0 +1,3 @@
+[submodule "IO_TG_Medical_Program"]
+	path = IO_TG_Medical_Program
+	url = https://github.com/tg-24/IO_TG_Medical_Program.git
