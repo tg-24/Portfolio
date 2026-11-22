@@ -7,17 +7,37 @@ body,
   overscroll-behavior: none;
 }
 
-footer {
-  height: 10vh;
-  flex-shrink: 0;
+:root {
+  /* Backgrounds */
+  /* Background colors */
+  --login-card-bg: #f8f5f0;
+  --input-bg: #fcf8f4;
+
+  /* Text colors */
+  --heading-color: #153f34;
+  --text-color: #233d3e;
+  --label-color: #123b32;
+  --icon-color: #23423f;
+
+  /* Button colors */
+  --button-bg: #184235;
+  --button-hover: #28604d;
+  --button-active: #102e24;
+  --button-text: #ffffff;
+
+  /* Input colors */
+  --input-border: #d2d0cb;
+  --input-focus: #28604d;
+
+  /* Link colors */
+  --link-color: #14543e;
+
+  /* Shadow color */
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-.login-container {
-  min-height: 80vh;
-}
-
-.home-page {
-  min-height: 300vh;
+button:hover {
+  cursor: pointer;
 }
 
 .counter {

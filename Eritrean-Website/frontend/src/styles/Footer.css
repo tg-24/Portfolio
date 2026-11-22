@@ -1,0 +1,43 @@
+.page-footer {
+  background-color: rgba(46, 65, 105, 0.65);
+  background: url("../assets/mountains.png") center / cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 4rem;
+}
+
+.text > h1 {
+  margin-bottom: 0;
+}
+
+.text > p {
+  margin-top: 0.5rem;
+}
+
+.subscribe {
+  display: flex;
+  gap: 2rem;
+}
+
+.subscribe > input {
+  width: 15vw;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 0;
+}
+
+#sub_btn {
+  background-color: #256528;
+  border: 0;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+  &:hover {
+    background-color: #388e3c;
+    transform: scale(1.1);
+  }
+}

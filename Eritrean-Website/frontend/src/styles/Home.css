@@ -178,13 +178,20 @@
 }
 
 .upcoming-events {
-  width: 80%;
+  width: fit-content;
   margin: 0 auto;
   margin-top: 1rem;
 }
 
 .no-events {
   background-color: lightgray;
+  width: 100%;
+  border-radius: 5px;
+  height: 20vh;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .details {
@@ -196,12 +203,20 @@
 
 .overall-details {
   display: flex;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .upcoming-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.upcoming-list > article {
+  flex: 1;
 }
 
 #event-image {
@@ -209,27 +224,27 @@
   height: 70%;
   display: block;
   margin: 0 auto;
-  overflow-y: hidden;
 }
 
 #event-image img {
   width: 100%;
-  object-fit: contain;
+  height: 100%;
 }
 
 .event-article {
   display: flex;
   flex-direction: column;
   background-color: white;
-  height: 33vh;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
   box-shadow: 2px 2px lightgray;
-  padding: 1rem;
+  padding: 0rem;
   padding-top: 0;
   border-radius: 5px;
-  width: 30%;
+  flex-shrink: 0;
+  max-width: 22rem;
+  overflow: hidden;
 }
 
 .event-article:hover {
@@ -297,7 +312,7 @@
 
 .about_community {
   background-color: rgb(234, 221, 199);
-  margin-top: 10rem;
+  margin-top: 4rem;
   height: 40vh;
   display: flex;
   padding: 10px;

@@ -6,7 +6,7 @@
 }
 
 .logo {
-  margin-right: 40px;
+  margin-right: 1rem;
 }
 
 .logo_img {
@@ -17,22 +17,26 @@
 .logo_name_container {
   display: flex;
   align-items: center;
+  position: relative;
+  left: 0;
 }
 
 .community_title > h2 {
   margin-bottom: 0;
   margin-top: 20px;
+  font-size: 2rem;
 }
 
 .community_title > p {
   margin-top: 5px;
+  font-size: 1.5rem;
 }
 
 .header {
   position: fixed;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   background-color: rgb(247, 233, 210);
   height: 15vh;
   width: 100%;
@@ -87,14 +91,10 @@
   color: black;
 }
 
-main {
+.component-container {
   background-color: rgb(255, 241, 215);
   margin-top: 15vh;
-  flex: 1;
-}
-
-footer {
-  background-color: black;
+  min-height: calc(100vh - 15vh);
 }
 
 .account p {

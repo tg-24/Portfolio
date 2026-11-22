@@ -1,5 +1,6 @@
 import "../styles/Home.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import {
   FaLocationDot,
   FaRegCalendarCheck,
@@ -11,6 +12,7 @@ import { NavLink } from "react-router";
 import community from "../assets/community.png";
 import culture from "../assets/culture.png";
 import about from "../assets/about.png";
+import Footer from "../components/Footer.jsx";
 
 export default function Home() {
   const [eventList, setEventList] = useState(null);
@@ -28,9 +30,14 @@ export default function Home() {
     "Nov",
     "Dec",
   ];
+  const navigate = useNavigate();
 
   function NoEvents() {
-    return <div className="no-events">No current events listed.</div>;
+    return (
+      <div className="no-events">
+        <b>No current events listed.</b>
+      </div>
+    );
   }
 
   useEffect(() => {
@@ -71,8 +78,12 @@ export default function Home() {
           </p>
         </div>
         <div className="buttons">
-          <button className="join">Join our Community</button>
-          <button className="learn">Learn More</button>
+          <button onClick={() => navigate("register/")} className="join">
+            Join our Community
+          </button>
+          <button onClick={() => navigate("about/")} className="learn">
+            Learn More
+          </button>
         </div>
         <div className="location">
           <FaLocationDot></FaLocationDot>
@@ -94,14 +105,12 @@ export default function Home() {
             <p>our heritage.</p>
           </section>
           <section className="event">
-            {/* <img alt="plan enriching events for the youth and community" /> */}
             <FaRegCalendarCheck className="calendar" />
             <b>Events</b>
             <p>Stay updated on</p>
             <p>gatherings and activities.</p>
           </section>
           <section className="support">
-            {/* <img alt="nuture the community" /> */}
             <FaHandHoldingHeart className="hand-heart"></FaHandHoldingHeart>
             <b>Support</b>
             <p>Empower our community for </p>
@@ -183,6 +192,7 @@ export default function Home() {
             </NavLink>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

@@ -14,5 +14,5 @@ class WebAdmin(admin.ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ["id", "title", "location", "start_time", "end_time"]
+    list_display = ["id", "title", "location", "start_time", "end_time", "image"]
     filter_horizontal = ["roster"]

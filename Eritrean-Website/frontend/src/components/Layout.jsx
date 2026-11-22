@@ -69,10 +69,9 @@ export default function Layout({ user, setUser, loading }) {
           </div>
         )}
       </header>
-      <main>
-        <Outlet className="bg-color:green" />
+      <main className="component-container">
+        <Outlet />
       </main>
-      <footer className="footer"></footer>
     </div>
   );
 }

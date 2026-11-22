@@ -1,11 +1,12 @@
 import { useState } from "react";
-import "../styles/login.css";
-import { FaCheck } from "react-icons/fa";
+import "../styles/Login.css";
+import { FaCheck, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useCsrfToken } from "../hooks/useCsrfToken";
-import { useNavigate } from "react-router";
+import { useNavigate, NavLink } from "react-router";
 export default function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
@@ -41,35 +42,56 @@ export default function Login({ setUser }) {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login Page</h1>
+        <h1>Welcome Back</h1>
+        <p>
+          Login to access events, register, and connect with the Eritrean
+          community.
+        </p>
         <div className="input-group">
           <label htmlFor="username">Username:</label>
+          <FaEnvelope className="input-icon" />
           <input
             value={username}
             id="username"
             onChange={(e) => {
               setUsername(e.target.value);
             }}
-            placeholder="name@email.com"
+            placeholder="Enter your email"
             required
           />
         </div>
         <div className="input-group">
           <label htmlFor="password">Password</label>
+          <FaLock className="input-icon" />
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             value={password}
             id="password"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            placeholder="Enter a password"
+            placeholder="Enter your password"
+
             required
           />
+          {showPassword ? (
+            <FaEye
+              className="visibility"
+              onClick={() => setShowPassword(!showPassword)}
+            />
+          ) : (
+            <FaEyeSlash
+              className="visibility"
+              onClick={() => setShowPassword(!showPassword)}
+            />
+          )}
         </div>
         <button className="login-button" type="submit">
-          <FaCheck className="check-mark"></FaCheck>
+          Log In
         </button>
+        <p className="login-link">
+          Don't have an account? <NavLink to="/register/">Register</NavLink>
+        </p>
       </form>
     </div>
   );

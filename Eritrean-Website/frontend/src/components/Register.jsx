@@ -1,6 +1,9 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
+import { useState } from "react";
 import "../styles/Register.css";
 export default function Register() {
+  const location = useLocation();
+  const [email, useEmail] = useState(location.state?.email || "");
   return (
     <div className="register-container">
       <h2>Register</h2>
@@ -12,7 +15,14 @@ export default function Register() {
         <input id="username" placeholder="Choose a unique username" required />
         <p>This will be your public name on the site.</p>
         <label for="email">Email address</label>
-        <input id="email" type="email" placeholder="you@example.com" required />
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          id="email"
+          type="email"
+          placeholder="you@example.com"
+          required
+        />
         <p>We'll use this to send you important updates.</p>
         <div className="names">
           <div className="first">

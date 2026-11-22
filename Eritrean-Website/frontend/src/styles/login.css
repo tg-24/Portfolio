@@ -3,7 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(242, 214, 180);
+  width: 100%;
+  min-height: calc(100vh - 15vh);
+  background: url("../assets/login-mtns.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .login-form {
@@ -11,36 +16,92 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background: white;
-  width: 20vw;
-  height: 15vw;
+  height: fit-content;
   border-radius: 2%;
-  box-shadow: 3px 2px 2px 2px rgb(109, 52, 6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   padding: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(248, 245, 240, 0.3), rgba(248, 245, 240, 0.3)),
+    url("../assets/ribbon.png"), var(--login-card-bg);
+  background-repeat: no-repeat;
+  background-position: bottom -0.7rem right -0.5rem;
+  background-size: 45% auto;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
+  > input {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-color);
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding-left: 3rem;
+    :focus {
+      background-color: var(--input-focus);
+    }
+  }
+  > label {
+    color: var(--label-color);
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+  }
+  margin-bottom: 1rem;
+}
+
+.input-icon {
+  color: var(--icon-color);
+  font-size: 1.2rem;
+  position: absolute;
+  transform: translate(1rem, 200%);
+}
+
+#password {
+  padding-right: 2.5rem;
 }
 
 .login-form > * {
   width: 80%;
-  height: 3vh;
 }
 
 .login-button {
   border: 2px solid black;
-  border-radius: 2px;
-  background-color: papayawhip;
-  width: 50%;
+  border-radius: 10px;
+  background-color: var(--button-bg);
+  width: 80%;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--button-text);
+  margin-bottom: 1rem;
+  :active {
+    background-color: var(--button-active);
+  }
+  :hover {
+    background-color: var(--button-hover);
+  }
 }
+/*
+--button-hover: #28604d;
+  --button-active: #102e24;
+  --button-text: #ffffff;
 
+  --input-border: #d2d0cb;
+  --input-focus: #28604d;
+
+
+  --link-color: #14543e;
+
+
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  */
 .login-button:hover {
   background-color: darkslategray;
   color: white;
@@ -55,4 +116,43 @@
   width: 2rem;
   height: 2rem;
   margin-bottom: 2px;
+}
+
+.login-form > h1 {
+  margin-bottom: 0;
+  text-align: center;
+  color: var(--heading-color);
+}
+
+.login-form > p {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.visibility {
+  position: absolute;
+  transform: translate(21vw, 5vh);
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.login-link {
+  color: var(--link-color);
+  > a {
+    color: var(--heading-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 0.3rem;
+  }
+  margin-bottom: 3rem;
+}
+
+.ribbon {
+  width: 15rem;
+  opacity: 0.7;
+  align-self: flex-end;
+  transform: translate(1.6rem, 1.9rem);
+  position: relative;
+  z-index: 1000;
 }
