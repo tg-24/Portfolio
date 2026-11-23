@@ -20,8 +20,9 @@
 }
 
 .popup-container > div:first-child {
-  flex: 1.2;
+  width: fit-content;
   min-width: 0;
+  max-width: 50%;
 }
 
 .popup-container > div:last-child {

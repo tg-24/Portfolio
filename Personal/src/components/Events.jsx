@@ -26,10 +26,9 @@ export default function Events() {
     <section className="content">
       <h2>Selected Projects</h2>
       <p>
-        A few recent builds--crafted with a calm dark palette clear hierarchy,
-        and micro-
-        <br />
-        interactions that make the UI feel alive.
+        A collection of projects showcasing my experience in software
+        development, <br />
+        problem-solving, and building practical applications.
       </p>
       <div className="projects">
         {projects.map((proj, index) => (

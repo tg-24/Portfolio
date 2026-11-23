@@ -10,10 +10,11 @@ export default function About({ about_interests }) {
       <article>
         <h2>About Me</h2>
         <p className="description">
-          I'm a junior Computer Science student who enjoys turning ideas into
-          reliable, user-friendly software. I'm especially interested in backend
-          systems, databases, and building full-stack web applications that
-          solve real problems.
+          I am a current junior at Union College with years of software
+          experience under my belt from working with multiple languages like
+          Python, Java, and JavaScript to utilizing frameworks. Namely, React
+          and Django to create full-stack projects utilizing backend and
+          frontend technology.
         </p>
         <div className="about_interests">
           {about_interests.map((interest, index) => (

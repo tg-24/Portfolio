@@ -5,8 +5,8 @@ export default function Hero() {
     <header className="hero">
       <section>
         <h1>
-          Product-focused engineer building fast, <br />
-          elegant web experiences.
+          Building reliable systems and meaningful
+          <br /> software solutions.
         </h1>
         <p className="description">
           I'm a Computer Science student passionate about backend development,
@@ -38,10 +38,23 @@ export default function Hero() {
       <aside className="area-container">
         <p className="focus-header">Focus Areas</p>
         <ul className="focus-list">
-          <li>Design systems with crisp tokens</li>
-          <li>Fast, accessible UI engineering</li>
-          <li>Landing pages that convert</li>
-          <li>Dashboards with clarity and depth</li>
+          <li>
+            <p>Full-Stack Development</p> — Building responsive interfaces and
+            connecting them to robust backend services.
+          </li>
+          <li>
+            <p>Backend Engineering</p> — Designing APIs, implementing
+            application logic, and developing scalable server-side systems.
+          </li>
+          <li>
+            <p>Software Engineering & Problem Solving</p> — Applying data
+            structures, algorithms, and programming principles to develop
+            efficient solutions to complex problems.
+          </li>
+          <li>
+            <p>Databases & Data Management</p> — Working with relational
+            databases to organize, retrieve, and manage data efficiently.
+          </li>
         </ul>
       </aside>
     </header>

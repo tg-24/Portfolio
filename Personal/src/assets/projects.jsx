@@ -4,7 +4,7 @@ const projects = [
   {
     title: "Eritrean Community Website",
     description:
-      "A full-stack web application for the Eritrean community at Union College to share events, resources, and cultural information.",
+      "A full-stack web application for the Eritrean community in Malden, MA to share events, resources, and cultural information.",
     skills: ["React", "Django", "PostgreSQL", "REST API"],
     bullets: [
       "User authentication & roles",

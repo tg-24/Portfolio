@@ -6,7 +6,6 @@ export default function Footer() {
     <footer className="site-footer">
       <div>
         <h2>Thomas</h2>
-        <p className="description">© 2026 Thomas Ghile. All rights reserved.</p>
       </div>
 
       <div className="footer-links">
