@@ -22,10 +22,12 @@ export default function EventView(popUpRef, setPopUp, setDemo) {
             <img src={project.image} />
           </div>
           <div>
-            <h2>{project.title}</h2>
-            <p className="description">{project.description}</p>
+            <div>
+              <h2>{project.title}</h2>
+              <p className="popup_description">{project.full_description}</p>
+            </div>
             <div className="skills">
-              {project.skills.map((skill, index) => (
+              {project.full_skills.map((skill, index) => (
                 <span key={index}>{skill}</span>
               ))}
             </div>

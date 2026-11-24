@@ -2,6 +2,7 @@ import { FaArrowRight, FaGithub } from "react-icons/fa";
 import { projects } from "../assets/projects";
 import EventView from "./EventView.jsx";
 import { useState, useEffect, useRef } from "react";
+import "../styles/Events.css";
 
 export default function Events() {
   const [popUp, setPopUp] = useState(null);
@@ -44,7 +45,7 @@ export default function Events() {
                 <FaArrowRight className="proj_arrow" />
               </div>
             </header>
-            <p>{proj.description}</p>
+            <p>{proj.brief_description}</p>
             <main className="skill_list">
               {proj.skills.map((skill, index) => (
                 <span key={index}>{skill}</span>

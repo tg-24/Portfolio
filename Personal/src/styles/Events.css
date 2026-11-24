@@ -1,0 +1,186 @@
+.content p {
+  color: #94a3b8;
+}
+.proj_arrow {
+  color: #94a3b8;
+  transform: rotate(-45deg);
+}
+
+.proj_arrow.visible {
+  transform: rotate(135deg);
+}
+
+.circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #242b3a;
+  border-radius: 50%;
+  padding: 3px;
+  align-self: center;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  scroll-margin-top: 80px;
+  > article:hover {
+    border-color: #3b82f6;
+    background-color: #182337;
+    cursor: pointer;
+    transform: scale(1.05);
+    .circle {
+      background-color: #3b82f6;
+    }
+    .proj_arrow {
+      color: white;
+    }
+  }
+}
+
+.projects article {
+  background-color: #101827;
+  border: 2px solid #242b3a;
+  width: 25rem;
+  min-height: 12rem;
+  padding-left: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projects article header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projects > article > p {
+  margin-top: 0rem;
+  margin-bottom: auto;
+}
+.projects h4,
+.content h2 {
+  font-weight: 100;
+}
+
+.projects h4 {
+  font-size: 1.2rem;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+.content p {
+  margin-bottom: 2rem;
+  line-height: 1.5rem;
+}
+
+.content {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.skill_list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  margin-bottom: 10px;
+  margin-top: 1rem;
+}
+
+.skill_list > * {
+  border: 1px solid #152238;
+  border-radius: 10px;
+  background-color: #152238;
+  margin-right: 5px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+}
+
+.all_projects {
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.all_projects > * {
+  color: #38bdf8;
+}
+
+.all_projects a {
+  text-decoration: none;
+}
+
+.git_icon {
+  position: relative;
+  bottom: 1px;
+}
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+}
+
+.popup-contain {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(50%, 50%);
+  z-index: 1001;
+  width: fit-content;
+  height: fit-content;
+}
+
+.popup-contain > * {
+  animation: 2s ease zoom;
+}
+
+.video_popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  z-index: 1000;
+  background: #111a2b;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.video_popup video {
+  width: 100%;
+}
+
+.video_popup button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2rem;
+  height: 2rem;
+
+  background-color: #111a2b;
+  color: white;
+  border: 1px solid #334e70;
+  border-radius: 50%;
+
+  font-size: 1.3rem;
+  cursor: pointer;
+}
