@@ -8,7 +8,7 @@ body,
 }
 
 :root {
-  /* Backgrounds */
+  /*Login Page*/
   /* Background colors */
   --login-card-bg: #f8f5f0;
   --input-bg: #fcf8f4;
@@ -34,6 +34,34 @@ body,
 
   /* Shadow color */
   --shadow-color: rgba(0, 0, 0, 0.2);
+
+  /**Register Page*/
+  /* Backgrounds */
+  --register-card-bg: #fcf4e9;
+  --register-card-border: #e5dac9;
+
+  /* Text */
+  --register-label: #171717;
+  --register-text: #333333;
+  --register-placeholder: #666666;
+  --register-link: #24552b;
+
+  /* Inputs */
+  --register-input-bg: #faf8f6;
+  --register-input-border: #adb5bd;
+  --register-input-focus: #39752a;
+
+  /* Buttons */
+  --register-button-bg: #39752a;
+  --register-button-hover: #2d6022;
+  --register-button-active: #234c1b;
+  --register-button-border: #204c1c;
+
+  /* Decorations */
+  --register-divider: #e8b84f;
+
+  /* Shadows */
+  --register-shadow: rgba(100, 75, 35, 0.15);
 }
 
 button:hover {

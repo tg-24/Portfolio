@@ -88,20 +88,7 @@
     background-color: var(--button-hover);
   }
 }
-/*
---button-hover: #28604d;
-  --button-active: #102e24;
-  --button-text: #ffffff;
 
-  --input-border: #d2d0cb;
-  --input-focus: #28604d;
-
-
-  --link-color: #14543e;
-
-
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  */
 .login-button:hover {
   background-color: darkslategray;
   color: white;
