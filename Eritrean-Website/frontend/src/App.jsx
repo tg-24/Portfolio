@@ -13,6 +13,7 @@ import NotFound from "./components/NotFound";
 import Layout from "./components/Layout";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Events from "./components/Events";
 import "./App.css";
 
 function App() {
@@ -53,10 +54,11 @@ function App() {
         >
           <Route index element={<Home />}></Route>
           <Route path="dashboard/" element={<Dashboard />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
           <Route path="register/" element={<Register />}></Route>
           <Route path="login/" element={<Login setUser={setUser} />}></Route>
+          <Route path="events/" element={<Events />}></Route>
         </Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </Router>
   );

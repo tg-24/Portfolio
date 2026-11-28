@@ -2,6 +2,13 @@ import { Outlet, Link, NavLink, useNavigate } from "react-router";
 import "../styles/Layout.css";
 import logo from "../assets/logo.png";
 import { useCsrfToken } from "../hooks/useCsrfToken";
+import {
+  FaRegUser,
+  FaChevronDown,
+  FaCalendar,
+  FaCog,
+  FaSignOutAlt,
+} from "react-icons/fa";
 
 export default function Layout({ user, setUser, loading }) {
   const homePath = "";
@@ -37,13 +44,12 @@ export default function Layout({ user, setUser, loading }) {
           </div>
           <div className="community_title">
             <h2>Eritrean Community</h2>
-            <p>People &bull; Culture &bull; Heritage &bull; Unity </p>
           </div>
         </div>
         <div className="tabs">
           {tab_list.map((val, index) => (
             <NavLink
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) => (isActive ? "active" : "inactive")}
               to={val == "Home" ? "" : val.toLowerCase() + "/"}
               key={index}
             >
@@ -54,11 +60,45 @@ export default function Layout({ user, setUser, loading }) {
         {loading ? (
           <p>Loading...</p>
         ) : user ? (
-          <div className="account">
-            <p>Logged in: {user.username}</p>
-            <button className="logout_button" onClick={handleLogout}>
-              Logout
-            </button>
+          <div className="overview">
+            <div
+              className="account"
+              onClick={(e) => e.currentTarget.classList.toggle("active")}
+            >
+              <FaRegUser />
+              <FaChevronDown />
+            </div>
+            <div className="account-dropdown">
+              <div>
+                <span className="circle">
+                  <FaRegUser className="user_img" />
+                </span>
+                <span>
+                  <h3>{user.username}</h3>
+                  <p>Community member</p>
+                </span>
+              </div>
+              <div className="divider"></div>
+              <div className="dropdown">
+                <div>
+                  <FaRegUser className="user_img" />
+                  <p>My Profile</p>
+                </div>
+                <div>
+                  <FaCalendar />
+                  <p>My Events</p>
+                </div>
+                <div>
+                  <FaCog />
+                  <p>Account Settings</p>
+                </div>
+              </div>
+              <div className="divider"></div>
+              <div className="logout_container" onClick={handleLogout}>
+                <FaSignOutAlt />
+                <p>Log out</p>
+              </div>
+            </div>
           </div>
         ) : (
           <div className="register_login">

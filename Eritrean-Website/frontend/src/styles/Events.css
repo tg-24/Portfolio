@@ -1,0 +1,16 @@
+:root {
+  --events-bg: #faf1e5;
+  --events-gradient-center: #fcf7ef;
+  --events-gradient-edge: #f5e4cc;
+
+  --events-wave-back: #f4e2c8;
+  --events-wave-front: #ebd1ac;
+
+  --events-card-bg: #fcf8f1;
+  --events-card-border: #e9d9c1;
+
+  --events-gold: #d5a54d;
+  --events-green: #203b29;
+
+  --events-shadow: rgba(125, 90, 40, 0.15);
+}
